@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./Navbar/Navbar";
+import RecentlyUpdated from "./RecentlyUpdated/RecentlyUpdated";
+import Trending from "./Trending/Trending";
+import NewRelease from "./NewRelease/NewRelease";
+import Recommended from "./Recommended/Recommended";
+import Hero from "./Hero/Hero";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col">
+      <Navbar />
+      <main className="text-white bg-black">
+        <Hero />
+        <div className="flex flex-col mx-40 mt-20 mb-40 gap-20">
+          <RecentlyUpdated />
+          <Trending />
+          <NewRelease releaseType={0} />
+          <NewRelease releaseType={1} />
+          <Recommended />
+        </div>
+      </main>
     </div>
   );
 }
