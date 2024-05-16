@@ -13,9 +13,14 @@ export default function TrendingThumbnail() {
         1:00:00
       </div>
       <div className="absolute top-4 right-4 flex flex-row items-center gap-1">
-      <img src="../../assets/Vector-rating.svg" alt=""></img>
+        <img src="../../assets/Vector-rating.svg" alt=""></img>
         5.0
       </div>
+      <img
+        className="playButton absolute top-1/2 right-1/2 bottom-1/2 left-1/2"
+        alt=""
+        src="../../assets/Vector-play-l.svg"
+      ></img>
     </div>
   );
 }

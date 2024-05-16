@@ -1,11 +1,12 @@
 import "./RecentlyUpdated.css";
+import UpdatedButton from "./UpdatedButton/UpdatedButton";
 import UpdatedTitle from "./UpdatedTitles/UpdatedTitle";
 
 export default function RecentlyUpdated() {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="text-2xl">Recently Updated</div>
-      <div className="flex flex-row gap-x-10">
+      <div className="flex flex-row gap-x-10 relative">
         <UpdatedTitle
           key={1}
         />
@@ -18,6 +19,7 @@ export default function RecentlyUpdated() {
         <UpdatedTitle
           key={4}
         />
+        <UpdatedButton />
       </div>
     </div>
   );
