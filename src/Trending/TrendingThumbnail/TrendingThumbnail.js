@@ -8,8 +8,14 @@ export default function TrendingThumbnail() {
         className="h-72 object-cover w-full rounded-xl"
         alt=""
       ></img>
-      <div className="absolute top-4 left-4">1:00:00</div>
-      <div className="absolute top-4 right-4">5.0</div>
+      <div className="absolute top-4 left-4 flex flex-row items-center gap-1">
+        <img src="../../assets/Vector-time.svg" alt=""></img>
+        1:00:00
+      </div>
+      <div className="absolute top-4 right-4 flex flex-row items-center gap-1">
+      <img src="../../assets/Vector-rating.svg" alt=""></img>
+        5.0
+      </div>
     </div>
   );
 }

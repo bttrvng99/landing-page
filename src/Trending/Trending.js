@@ -6,7 +6,10 @@ export default function Trending() {
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-2xl">Trending</div>
-        <button>View All</button>
+        <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
+          View All
+          <img alt="" src="../../assets/vector-arrow.svg"></img>
+        </button>
       </div>
       <div className="grid grid-cols-3 gap-x-8">
         <TrendingTitles

@@ -4,7 +4,7 @@ import UpdatedTitle from "./UpdatedTitles/UpdatedTitle";
 export default function RecentlyUpdated() {
   return (
     <div className="flex flex-col gap-y-2">
-      <div className="font-semibold">Recently Updated</div>
+      <div className="text-2xl">Recently Updated</div>
       <div className="flex flex-row gap-x-10">
         <UpdatedTitle
           key={1}
