@@ -1,6 +1,9 @@
 import GenreTag from "../GenreTag/GenreTag";
 import { API_OPTIONS, URL_MOVIE_DETAIL, REGION } from "../../AppConsts";
 import { useEffect, useState } from "react";
+import { ReactComponent as Calendar } from "../../assets/Group-calendar.svg";
+import { ReactComponent as Time } from "../../assets/Vector-time.svg";
+import { ReactComponent as Rating } from "../../assets/Vector-rating.svg";
 
 function MovieInfo({ id, release_date, vote_average }) {
   const [data, setData] = useState({});
@@ -24,13 +27,13 @@ function MovieInfo({ id, release_date, vote_average }) {
         return <GenreTag genre={genre.name} key={genre.id} />;
       })}
       <div className="flex flex-row items-center p-2 gap-2">
-        <img src="../../assets/Group-calendar.svg" alt=""></img> {release_date.split("-")[0]}
+        <Calendar /> {release_date.split("-")[0]}
       </div>
       <div className="flex flex-row items-center p-2 gap-2">
-        <img src="../../assets/Vector-time.svg" alt=""></img> {calculateRuntime(data?.runtime)}
+        <Time /> {calculateRuntime(data?.runtime)}
       </div>
       <div className="flex flex-row items-center p-2 gap-2">
-        <img src="../../assets/Vector-rating.svg" alt=""></img>{" "}
+        <Rating />
         {vote_average.toFixed(1)}
       </div>
     </div>

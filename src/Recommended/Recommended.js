@@ -3,6 +3,7 @@ import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
 import FormatToggle from "./FormatToggle/FormatToggle";
 import { useState, useEffect } from "react";
 import { API_OPTIONS, MOVIE } from "../AppConsts";
+import { ReactComponent as Arrow } from "../assets/Vector-arrow.svg";
 
 const URL =
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
@@ -51,7 +52,7 @@ export default function Recommended() {
         </div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
           View All
-          <img alt="" src="../../assets/vector-arrow.svg"></img>
+          <Arrow />
         </button>
       </div>
       <div className="grid grid-cols-4 gap-8">

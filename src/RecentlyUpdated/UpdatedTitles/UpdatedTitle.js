@@ -31,7 +31,7 @@ function UpdatedTitle({
 
       <div className="flex flex-col justify-center update_info">
         <div className="font-semibold">{data?.name}</div>
-        <div className="font-normal">
+        <div className="font-normal whitespace-nowrap">
           Series/S {data?.number_of_seasons}/E {data?.last_episode_to_air?.episode_number}
         </div>
         <div className="font-normal">{data?.last_episode_to_air?.air_date?.split("-")[0]}</div>

@@ -1,5 +1,7 @@
 import "./TrendingThumbnail.css";
 import { BASE_IMG_URL } from "../../AppConsts";
+import {ReactComponent as Time} from "../../assets/Vector-time.svg";
+import {ReactComponent as Rating} from "../../assets/Vector-rating.svg"
 
 export default function TrendingThumbnail({duration, rating, imgUrl}) {
   return (
@@ -10,11 +12,11 @@ export default function TrendingThumbnail({duration, rating, imgUrl}) {
         alt=""
       ></img>
       <div className="absolute top-2 left-4 flex flex-row items-center gap-1">
-        <img src="../../assets/Vector-time.svg" alt=""></img>
+        <Time />
         {calculateRuntime(duration)}
       </div>
       <div className="absolute top-2 right-4 flex flex-row items-center gap-1">
-        <img src="../../assets/Vector-rating.svg" alt=""></img>
+        <Rating />
         {rating.toFixed(1)}
       </div>
       <img

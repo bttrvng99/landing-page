@@ -1,4 +1,4 @@
-// import { faFont } from "@fortawesome/free-solid-svg-icons";
+import {ReactComponent as Search} from '../../assets/Vector-search.svg'
 import "./NavbarSearch.css";
 
 export default function NavbarSearch() {
@@ -10,7 +10,7 @@ export default function NavbarSearch() {
           className="placeholder-black p-1 max-w-md h-12 bg-none px-6 py-3 overflow-hidden"
         ></input>
         <button className="p-3 px-6">
-          <img alt="" src="../../../assets/Vector-search.svg"></img>
+          <Search />
         </button>
       </form>
     </div>

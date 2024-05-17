@@ -1,17 +1,20 @@
+import { ReactComponent as Dash } from "../../assets/line-1-dash.svg";
+import { ReactComponent as Dot } from "../../assets/ellipse-3-dot.svg";
+
 export default function HeroPagination() {
   return (
     <div className="flex flex-row items-center justify-center gap-4 absolute left-40 right-40 bottom-5">
       <button>
-        <img src="../../assets/line-1-dash.svg" alt=""></img>
+        <Dash />
       </button>
       <button>
-        <img src="../../assets/ellipse-3-dot.svg" alt=""></img>
+        <Dot />
       </button>
       <button>
-        <img src="../../assets/ellipse-3-dot.svg" alt=""></img>
+        <Dot />
       </button>
       <button>
-        <img src="../../assets/ellipse-3-dot.svg" alt=""></img>
+        <Dot />
       </button>
     </div>
   );

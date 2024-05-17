@@ -2,7 +2,7 @@ import NavbarButton from "./NavbarButton/NavbarButton";
 import NavbarSearch from "./NavbarSearch/NavbarSearch";
 import NavbarButtonGroup from "./NavbarButtonGroup/NavbarButtonGroup";
 import "./Navbar.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {ReactComponent as Notification} from '../assets/Vector-notiy.svg'
 
 const buttonsLeft = [
   {
@@ -58,7 +58,7 @@ function Navbar() {
       <NavbarButtonGroup group={buttonsRight} key={2}></NavbarButtonGroup>
       <NavbarButton text={"Login/SignUp"} key={7}></NavbarButton>
       <button>
-        <img alt="" src="../../assets/Vector-notiy.svg"></img>
+        <Notification />
       </button>
     </div>
   );

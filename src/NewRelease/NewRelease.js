@@ -3,11 +3,12 @@ import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
 import { API_OPTIONS } from "../AppConsts";
 import { useState, useEffect } from "react";
 import { MOVIE, REGION } from "../AppConsts";
+import { ReactComponent as Arrow } from "../assets/Vector-arrow.svg";
 
 const URL_NEW_MOVIES =
-  "https://api.themoviedb.org/3/movie/upcoming"+REGION+"&page=1";
+  "https://api.themoviedb.org/3/movie/upcoming" + REGION + "&page=1";
 const URL_NEW_SERIES =
-  "https://api.themoviedb.org/3/tv/airing_today"+REGION+"&page=1";
+  "https://api.themoviedb.org/3/tv/airing_today" + REGION + "&page=1";
 
 export default function NewRelease({ releaseType }) {
   const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ export default function NewRelease({ releaseType }) {
         </div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
           View All
-          <img alt="" src="../../assets/vector-arrow.svg"></img>
+          <Arrow />
         </button>
       </div>
       <div className="grid grid-cols-4 gap-x-8">

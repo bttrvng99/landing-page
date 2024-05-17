@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Trending";
 import TrendingTitles from "./TrendingTitles/TrendingTitles";
 import { API_OPTIONS } from "../AppConsts";
+import {ReactComponent as Arrow} from '../assets/Vector-arrow.svg'
 
 const URL = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
 
@@ -22,7 +23,7 @@ export default function Trending() {
         <div className="font-bold text-2xl">Trending</div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
           View All
-          <img alt="" src="../../assets/vector-arrow.svg"></img>
+          <Arrow />
         </button>
       </div>
       <div className="grid grid-cols-3 gap-x-8">
