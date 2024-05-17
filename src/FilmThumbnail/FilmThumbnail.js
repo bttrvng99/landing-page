@@ -1,5 +1,6 @@
 import DurationLabel from "./DurationLabel/DurationLabel";
 import "./FilmThumbnail.css";
+import { baseIMGUrl } from "../AppConsts";
 
 export default function FilmThumbnail({
   title = "Title gggg",
@@ -12,7 +13,7 @@ export default function FilmThumbnail({
     <div className="flex flex-col gap-y-4">
       <img
         className="object-cover poster rounded-xl"
-        src={imageUrl}
+        src={baseIMGUrl+imageUrl}
         alt={title}
       ></img>
       <div className="flex flex-row items-center justify-between">

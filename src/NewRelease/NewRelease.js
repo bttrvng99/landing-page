@@ -1,9 +1,31 @@
 import "./NewRelease.css";
 import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
+import { apiOptions } from "../AppConsts";
+import { useState, useEffect } from "react";
 
 const MOVIE = 0;
 
+const URL_NEW_MOVIES =
+  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+const URL_NEW_SERIES =
+  "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1";
+
 export default function NewRelease({ releaseType }) {
+  const [data, setData] = useState([]);
+
+  const fetchInfo = async () => {
+    return fetch(
+      releaseType === MOVIE ? URL_NEW_MOVIES : URL_NEW_SERIES,
+      apiOptions
+    )
+      .then((response) => response.json())
+      .then((response) => setData(response.results.slice(0, 4)))
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => fetchInfo, []);
+  // console.log(releaseType === MOVIE? "movies" : "series",data);
+
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
@@ -16,10 +38,16 @@ export default function NewRelease({ releaseType }) {
         </button>
       </div>
       <div className="grid grid-cols-4 gap-x-8">
-        <FilmThumbnail type={releaseType} />
-        <FilmThumbnail type={releaseType} />
-        <FilmThumbnail type={releaseType} />
-        <FilmThumbnail type={releaseType} />
+        {data?.map((entry) => {
+          return (
+            <FilmThumbnail
+              type={releaseType}
+              imageUrl={entry.poster_path}
+              key={entry.id}
+              title={entry.title}
+            />
+          );
+        })}
       </div>
     </div>
   );

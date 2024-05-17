@@ -2,7 +2,6 @@
 import "./NavbarSearch.css";
 
 export default function NavbarSearch() {
-  console.log("Enter text");
   return (
     <div className="flex flex-row items-center rounded-full bg-white overflow-hidden">
       <form className="flex flex-row items-center">

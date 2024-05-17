@@ -1,20 +1,21 @@
 import "./TrendingThumbnail.css";
+import { baseIMGUrl } from "../../AppConsts";
 
-export default function TrendingThumbnail() {
+export default function TrendingThumbnail({duration, rating, imgUrl}) {
   return (
     <div className="relative">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg"
+        src={baseIMGUrl+imgUrl}
         className="h-72 object-cover w-full rounded-xl"
         alt=""
       ></img>
       <div className="absolute top-4 left-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-time.svg" alt=""></img>
-        1:00:00
+        {duration}
       </div>
       <div className="absolute top-4 right-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-rating.svg" alt=""></img>
-        5.0
+        {rating.toFixed(1)}
       </div>
       <img
         className="playButton absolute top-1/2 right-1/2 bottom-1/2 left-1/2"

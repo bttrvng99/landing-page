@@ -1,7 +1,23 @@
+import { useEffect, useState } from "react";
 import "./Trending";
 import TrendingTitles from "./TrendingTitles/TrendingTitles";
+import { apiOptions } from "../AppConsts";
+
+const url = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
 
 export default function Trending() {
+  const [data, setData] = useState([]);
+
+  const fetchInfo = async () => {
+    return fetch(url, apiOptions)
+      .then((response) => response.json())
+      .then((response) => setData(response.results.slice(0, 3)))
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => fetchInfo, []);
+  // console.log(data);
+
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
@@ -12,27 +28,17 @@ export default function Trending() {
         </button>
       </div>
       <div className="grid grid-cols-3 gap-x-8">
-        <TrendingTitles
-          title={"abc"}
-          eopisode={1}
-          season={1}
-          year={"2018"}
-          key={1}
-        />
-        <TrendingTitles
-          title={"abc"}
-          eopisode={2}
-          season={2}
-          year={"2018"}
-          key={2}
-        />
-        <TrendingTitles
-          title={"abc"}
-          eopisode={3}
-          season={3}
-          year={"2018"}
-          key={3}
-        />
+        {data?.map((entry) => {
+          return (
+            <TrendingTitles
+              rating={entry.vote_average}
+              duration={"2:13:00"}
+              key={entry.id}
+              title={entry.original_title}
+              imgUrl={entry.poster_path}
+            />
+          );
+        })}
       </div>
     </div>
   );
