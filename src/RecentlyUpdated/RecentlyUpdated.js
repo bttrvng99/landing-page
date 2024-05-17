@@ -21,15 +21,17 @@ export default function RecentlyUpdated() {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="text-2xl">Recently Updated</div>
-      <div className="flex flex-row gap-x-10 relative overflow-hidden">
-        {data?.map((serie) => {
-          return (
-            <button className="text-left">
-              <UpdatedTitle key={serie.id} id={serie.id} />
-            </button>
-          );
-        })}
-        <UpdatedButton />
+      <div className="relative">
+        <div className="flex flex-row gap-x-10 overflow-hidden">
+          {data?.map((serie) => {
+            return (
+              <button className="text-left">
+                <UpdatedTitle key={serie.id} id={serie.id} />
+              </button>
+            );
+          })}
+        </div>
+        <UpdatedButton/>
       </div>
     </div>
   );

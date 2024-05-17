@@ -1,5 +1,5 @@
 .button-more {
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
     width: 88px;
     height: 88px;
 }
