@@ -4,7 +4,23 @@ import FormatToggle from "./FormatToggle/FormatToggle";
 import { useState, useEffect } from "react";
 import { apiOptions, MOVIE } from "../AppConsts";
 
-const URL = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+const URL =
+  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+
+const FORMATS = [
+  {
+    key: "movi",
+    text: "Movies",
+  },
+  {
+    key: "seri",
+    text: "Series",
+  },
+  {
+    key: "anim",
+    text: "Animation",
+  },
+];
 
 export default function Recommended() {
   const [data, setData] = useState([]);
@@ -23,9 +39,15 @@ export default function Recommended() {
       <div className="flex flex-row justify-between items-center">
         <div className="font-bold text-2xl flex flex-row gap-6 items-center">
           <div>Recommended</div>
-          <FormatToggle id={"movie"} text={"Movies"} key={"movie"} />
-          <FormatToggle id={"serie"} text={"Series"} key={"serie"} />
-          <FormatToggle id={"anim"} text={"Animated"} key={"anim"} />
+          {FORMATS.map((format) => {
+            return (
+              <FormatToggle
+                id={format.key}
+                text={format.text}
+                key={format.key}
+              />
+            );
+          })}
         </div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
           View All
@@ -33,14 +55,17 @@ export default function Recommended() {
         </button>
       </div>
       <div className="grid grid-cols-4 gap-8">
-      {data?.map((entry) => {
+        {data?.map((entry) => {
           return (
-            <FilmThumbnail
-              type={MOVIE}
-              imageUrl={entry.poster_path}
-              key={entry.id}
-              title={entry.title}
-            />
+            <button>
+              <FilmThumbnail
+                id={entry.id}
+                type={MOVIE}
+                imageUrl={entry.poster_path}
+                key={entry.id}
+                title={entry.title}
+              />
+            </button>
           );
         })}
       </div>

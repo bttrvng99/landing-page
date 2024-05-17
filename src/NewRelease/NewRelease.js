@@ -24,8 +24,6 @@ export default function NewRelease({ releaseType }) {
   };
 
   useEffect(() => fetchInfo, []);
-  // console.log(releaseType === MOVIE? "movies" : "series",data);
-
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
@@ -40,12 +38,15 @@ export default function NewRelease({ releaseType }) {
       <div className="grid grid-cols-4 gap-x-8">
         {data?.map((entry) => {
           return (
-            <FilmThumbnail
-              type={releaseType}
-              imageUrl={entry.poster_path}
-              key={entry.id}
-              title={entry.title}
-            />
+            <button>
+              <FilmThumbnail
+                id={entry.id}
+                type={releaseType}
+                imageUrl={entry.poster_path}
+                key={entry.id}
+                title={releaseType === MOVIE ? entry.title : entry.name}
+              />
+            </button>
           );
         })}
       </div>

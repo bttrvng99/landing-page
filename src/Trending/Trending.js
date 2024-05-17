@@ -16,8 +16,6 @@ export default function Trending() {
   };
 
   useEffect(() => fetchInfo, []);
-  // console.log(data);
-
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
@@ -30,13 +28,16 @@ export default function Trending() {
       <div className="grid grid-cols-3 gap-x-8">
         {data?.map((entry) => {
           return (
-            <TrendingTitles
-              rating={entry.vote_average}
-              duration={"2:13:00"}
-              key={entry.id}
-              title={entry.original_title}
-              imgUrl={entry.poster_path}
-            />
+            <button>
+              <TrendingTitles
+                rating={entry.vote_average}
+                duration={"2:13:00"}
+                key={entry.id}
+                title={entry.original_title}
+                imgUrl={entry.poster_path}
+                id={entry.id}
+              />
+            </button>
           );
         })}
       </div>

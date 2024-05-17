@@ -12,14 +12,14 @@ const SERIES = 1;
 function App() {
   return (
     <div className="flex flex-col">
-      <Navbar />
+      <Navbar key={1}/>
       <main className="text-white bg-black">
-        <Hero />
+        <Hero key={2}/>
         <div className="flex flex-col mx-40 mt-20 mb-40 gap-20">
-          <RecentlyUpdated />
-          <Trending />
-          <NewRelease releaseType={MOVIE} />
-          <NewRelease releaseType={SERIES} />
+          <RecentlyUpdated key={3}/>
+          <Trending key={4}/>
+          <NewRelease releaseType={MOVIE} key={5}/>
+          <NewRelease releaseType={SERIES} key={6}/>
           <Recommended />
         </div>
       </main>

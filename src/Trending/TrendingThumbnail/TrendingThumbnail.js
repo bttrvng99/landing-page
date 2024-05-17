@@ -1,17 +1,17 @@
 import "./TrendingThumbnail.css";
-import { baseIMGUrl } from "../../AppConsts";
+import { BASE_IMG_URL } from "../../AppConsts";
 
 export default function TrendingThumbnail({duration, rating, imgUrl}) {
   return (
     <div className="relative">
       <img
-        src={baseIMGUrl+imgUrl}
+        src={BASE_IMG_URL+imgUrl}
         className="h-72 object-cover w-full rounded-xl"
         alt=""
       ></img>
       <div className="absolute top-4 left-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-time.svg" alt=""></img>
-        {duration}
+        {calculateRuntime(duration)}
       </div>
       <div className="absolute top-4 right-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-rating.svg" alt=""></img>
@@ -24,4 +24,10 @@ export default function TrendingThumbnail({duration, rating, imgUrl}) {
       ></img>
     </div>
   );
+}
+
+function calculateRuntime(duration_minutes) {
+  var hours = Math.floor(duration_minutes / 60);
+  var minutes = duration_minutes % 60;
+  return hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":00";
 }
