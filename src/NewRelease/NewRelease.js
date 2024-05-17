@@ -1,9 +1,8 @@
 import "./NewRelease.css";
 import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
-import { apiOptions } from "../AppConsts";
+import { API_OPTIONS } from "../AppConsts";
 import { useState, useEffect } from "react";
-
-const MOVIE = 0;
+import { MOVIE } from "../AppConsts";
 
 const URL_NEW_MOVIES =
   "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
@@ -16,7 +15,7 @@ export default function NewRelease({ releaseType }) {
   const fetchInfo = async () => {
     return fetch(
       releaseType === MOVIE ? URL_NEW_MOVIES : URL_NEW_SERIES,
-      apiOptions
+      API_OPTIONS
     )
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 4)))

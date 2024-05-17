@@ -1,7 +1,7 @@
 import "./TrendingTitles.css";
 import TrendingGenreTag from "../TrendingGenreTag/TrendingGenreTag";
 import TrendingThumbnail from "../TrendingThumbnail/TrendingThumbnail";
-import { REGION, URL_MOVIE_DETAIL, apiOptions } from "../../AppConsts";
+import { REGION, URL_MOVIE_DETAIL, API_OPTIONS } from "../../AppConsts";
 import { useEffect, useState } from "react";
 
 export default function TrendingTitles({
@@ -16,7 +16,7 @@ export default function TrendingTitles({
   const [genres, setGenres] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_MOVIE_DETAIL + id + REGION, apiOptions)
+    return fetch(URL_MOVIE_DETAIL + id + REGION, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => {
         setData(response);

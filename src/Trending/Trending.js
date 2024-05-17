@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Trending";
 import TrendingTitles from "./TrendingTitles/TrendingTitles";
-import { apiOptions } from "../AppConsts";
+import { API_OPTIONS } from "../AppConsts";
 
-const url = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
+const URL = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
 
 export default function Trending() {
   const [data, setData] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(url, apiOptions)
+    return fetch(URL, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 3)))
       .catch((err) => console.error(err));

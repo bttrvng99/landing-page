@@ -5,9 +5,7 @@ import Trending from "./Trending/Trending";
 import NewRelease from "./NewRelease/NewRelease";
 import Recommended from "./Recommended/Recommended";
 import Hero from "./Hero/Hero";
-
-const MOVIE = 0;
-const SERIES = 1;
+import { MOVIE, SERIES } from "./AppConsts";
 
 function App() {
   return (

@@ -8,14 +8,17 @@ const buttonsLeft = [
   {
     key: "home",
     text: "Home",
+    isHome: true,
   },
   {
     key: "genre",
     text: "Genre",
+    isHome: false,
   },
   {
     key: "country",
     text: "Country",
+    isHome: false,
   },
 ];
 
@@ -23,14 +26,17 @@ const buttonsRight = [
   {
     key: "movies",
     text: "Movies",
+    isHome: false,
   },
   {
     key: "series",
     text: "Series",
+    isHome: false,
   },
   {
     key: "animation",
     text: "Animation",
+    isHome: false,
   },
 ];
 

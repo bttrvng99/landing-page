@@ -1,7 +1,7 @@
 import DurationLabel from "./DurationLabel/DurationLabel";
 import "./FilmThumbnail.css";
 import { useState, useEffect } from "react";
-import { BASE_IMG_URL, URL_MOVIE_DETAIL, REGION, apiOptions, MOVIE, URL_SERIE_DETAIL } from "../AppConsts";
+import { BASE_IMG_URL, URL_MOVIE_DETAIL, REGION, API_OPTIONS, MOVIE, URL_SERIE_DETAIL } from "../AppConsts";
 
 export default function FilmThumbnail({
   id,
@@ -14,7 +14,7 @@ export default function FilmThumbnail({
   const [data, setData] = useState({});
 
   const fetchInfo = async () => {
-    return fetch((type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL)+id+REGION, apiOptions)
+    return fetch((type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL)+id+REGION, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => setData(response))
       .catch((err) => console.error(err));

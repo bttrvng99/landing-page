@@ -1,6 +1,6 @@
 import "./UpdatedTitle.css";
 import { useState, useEffect } from "react";
-import { BASE_IMG_URL, REGION, URL_SERIE_DETAIL, apiOptions } from "../../AppConsts";
+import { BASE_IMG_URL, REGION, URL_SERIE_DETAIL, API_OPTIONS } from "../../AppConsts";
 
 function UpdatedTitle({
   id,
@@ -13,7 +13,7 @@ function UpdatedTitle({
   const [data, setData] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_SERIE_DETAIL + id + REGION, apiOptions)
+    return fetch(URL_SERIE_DETAIL + id + REGION, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => setData(response))
       .catch((err) => console.error(err));
@@ -21,9 +21,9 @@ function UpdatedTitle({
 
   useEffect(() => fetchInfo, []);
 
-  console.log(data);
+  //console.log(data);
   return (
-    <div className="flex flex-row max-w-52 h-28 gap-6">
+    <div className="flex flex-row min-w-52 h-28 gap-6">
       <img
         className="object-cover h-82 w-73 rounded-md"
         alt=""

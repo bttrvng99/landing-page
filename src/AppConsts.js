@@ -1,4 +1,4 @@
-export const apiOptions = {
+export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",

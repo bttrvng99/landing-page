@@ -6,7 +6,7 @@ export default function NavbarButtonGroup({ group }) {
     <div className="flex gap-4">
       {group.map((button) => {
         return (
-          <NavbarButton text={button.text} key={button.key}></NavbarButton>
+          <NavbarButton text={button.text} key={button.key} isHome={button.isHome}></NavbarButton>
         );
       })}
     </div>

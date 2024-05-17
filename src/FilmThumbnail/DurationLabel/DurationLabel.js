@@ -1,7 +1,5 @@
 import "./DurationLabel.css";
-
-const MOVIE = 0;
-const SERIES = 1;
+import { MOVIE } from "../../AppConsts";
 
 export default function DurationLabel({ type = 0, duration, season }) {
   return (
@@ -10,12 +8,8 @@ export default function DurationLabel({ type = 0, duration, season }) {
         HD
       </div>
       <div className="flex flex-row gap-1 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 ">
-        {/* {type === MOVIE && (
-          
-        )} */}
         {type === MOVIE ? (
           <div className=" flex flex-row gap-1 whitespace-nowrap">
-            {/* <img src="../../assets/Vector-time.svg" alt=""></img> */}
             {calculateRuntime(duration)}
           </div>
         ) : (
