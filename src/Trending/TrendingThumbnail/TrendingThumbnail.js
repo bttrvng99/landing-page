@@ -9,11 +9,11 @@ export default function TrendingThumbnail({duration, rating, imgUrl}) {
         className="h-72 object-cover w-full rounded-xl"
         alt=""
       ></img>
-      <div className="absolute top-4 left-4 flex flex-row items-center gap-1">
+      <div className="absolute top-2 left-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-time.svg" alt=""></img>
         {calculateRuntime(duration)}
       </div>
-      <div className="absolute top-4 right-4 flex flex-row items-center gap-1">
+      <div className="absolute top-2 right-4 flex flex-row items-center gap-1">
         <img src="../../assets/Vector-rating.svg" alt=""></img>
         {rating.toFixed(1)}
       </div>

@@ -20,17 +20,16 @@ function UpdatedTitle({
   };
 
   useEffect(() => fetchInfo, []);
-
-  //console.log(data);
+  
   return (
-    <div className="flex flex-row min-w-52 h-28 gap-6">
+    <div className="flex flex-row gap-6  justify-center">
       <img
-        className="object-cover h-82 w-73 rounded-md"
+        className="object-cover h-28 rounded-md overflow-hidden self-center"
         alt=""
         src={BASE_IMG_URL+data?.poster_path}
       ></img>
 
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center update_info">
         <div className="font-semibold">{data?.name}</div>
         <div className="font-normal">
           Series/S {data?.number_of_seasons}/E {data?.last_episode_to_air?.episode_number}

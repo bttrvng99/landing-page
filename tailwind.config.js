@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryRed: "rgb(var(--color-primary-red)",
-        backgroundBlack: "rgb(var(--color-background-black)",
+        primaryRed: "rgb(var(--color-primary-red))",
+        backgroundBlack: "rgb(var(--color-background-black))",
+        buttonGray: "rgb(#D9D9D9)"
       },
     },
   },

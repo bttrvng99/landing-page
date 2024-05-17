@@ -2,10 +2,11 @@ import "./Hero.css";
 import MovieInfo from "./MovieInfo/MovieInfo";
 import PlayButton from "./PlayButton/PlayButton";
 import { useState, useEffect } from "react";
-import { BASE_IMG_URL, API_OPTIONS } from "../AppConsts";
+import { BASE_IMG_URL, API_OPTIONS, REGION } from "../AppConsts";
+import HeroPagination from "./HeroPagination/HeroPagination";
 
 const URL =
-  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
+  "https://api.themoviedb.org/3/movie/now_playing"+REGION+"&page=1";
 
 export default function Hero() {
   const [data, setData] = useState([]);
@@ -43,6 +44,7 @@ export default function Hero() {
               <p className="mt-6">{entry.overview}</p>
             </div>
             <PlayButton key={entry.id}/>
+            <HeroPagination />
           </div>
         );
       })}

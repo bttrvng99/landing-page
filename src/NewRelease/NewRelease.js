@@ -2,12 +2,12 @@ import "./NewRelease.css";
 import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
 import { API_OPTIONS } from "../AppConsts";
 import { useState, useEffect } from "react";
-import { MOVIE } from "../AppConsts";
+import { MOVIE, REGION } from "../AppConsts";
 
 const URL_NEW_MOVIES =
-  "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+  "https://api.themoviedb.org/3/movie/upcoming"+REGION+"&page=1";
 const URL_NEW_SERIES =
-  "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1";
+  "https://api.themoviedb.org/3/tv/airing_today"+REGION+"&page=1";
 
 export default function NewRelease({ releaseType }) {
   const [data, setData] = useState([]);

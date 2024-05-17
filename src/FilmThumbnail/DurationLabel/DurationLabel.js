@@ -4,18 +4,19 @@ import { MOVIE } from "../../AppConsts";
 export default function DurationLabel({ type = 0, duration, season }) {
   return (
     <div className="flex flex-row gap-2">
-      <div className="flex flex-row gap-1 items-center rounded-lg bg-red-600 text-white p-1">
+      <div className="flex flex-row gap-1 h-8 w-8 items-center rounded-lg bg-red-600 text-white p-1">
         HD
       </div>
-      <div className="flex flex-row gap-1 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 ">
-        {type === MOVIE ? (
-          <div className=" flex flex-row gap-1 whitespace-nowrap">
-            {calculateRuntime(duration)}
-          </div>
-        ) : (
-          <div className="whitespace-nowrap">Season {season}</div>
-        )}
-      </div>
+      {type === MOVIE ? (
+        <div className=" flex flex-row h-8 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 gap-1 whitespace-nowrap">
+          <img src="../../assets/Vector-time.svg" alt=""></img>
+          {calculateRuntime(duration)}
+        </div>
+      ) : (
+        <div className="h-8 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 whitespace-nowrap">
+          Season {season}
+        </div>
+      )}
     </div>
   );
 }
