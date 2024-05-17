@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/landing-page/static/css/main.5348d51f.css",
-    "main.js": "/landing-page/static/js/main.dc9eb35f.js",
+    "main.css": "/landing-page/static/css/main.809d57c2.css",
+    "main.js": "/landing-page/static/js/main.e6751e37.js",
     "static/js/453.7ee4257d.chunk.js": "/landing-page/static/js/453.7ee4257d.chunk.js",
     "static/media/Group-calendar.svg": "/landing-page/static/media/Group-calendar.c1bf16971aacbf4adbea65bdeee80aa7.svg",
     "static/media/Vector-time.svg": "/landing-page/static/media/Vector-time.f31d659644c8797deddc59495da771ec.svg",
@@ -15,12 +15,12 @@
     "static/media/group-5-right-arrow.svg": "/landing-page/static/media/group-5-right-arrow.73f7c057844890bfcada73c439604ef2.svg",
     "static/media/line-1-dash.svg": "/landing-page/static/media/line-1-dash.6016e4c71ea935cc55e585ec4f14b333.svg",
     "static/media/ellipse-3-dot.svg": "/landing-page/static/media/ellipse-3-dot.269c149c0862e1337fa17421b41d96b2.svg",
-    "main.5348d51f.css.map": "/landing-page/static/css/main.5348d51f.css.map",
-    "main.dc9eb35f.js.map": "/landing-page/static/js/main.dc9eb35f.js.map",
+    "main.809d57c2.css.map": "/landing-page/static/css/main.809d57c2.css.map",
+    "main.e6751e37.js.map": "/landing-page/static/js/main.e6751e37.js.map",
     "453.7ee4257d.chunk.js.map": "/landing-page/static/js/453.7ee4257d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5348d51f.css",
-    "static/js/main.dc9eb35f.js"
+    "static/css/main.809d57c2.css",
+    "static/js/main.e6751e37.js"
   ]
 }
