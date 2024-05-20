@@ -30,7 +30,7 @@ export default function NewRelease({ releaseType }) {
         <div className="font-bold text-2xl">
           New Releases - {releaseType === MOVIE ? "Movies" : "Series"}
         </div>
-        <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
+        <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
           <Arrow />
         </button>

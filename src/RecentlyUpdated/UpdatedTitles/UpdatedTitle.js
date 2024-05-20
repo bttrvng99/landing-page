@@ -1,6 +1,11 @@
 import "./UpdatedTitle.css";
 import { useState, useEffect } from "react";
-import { BASE_IMG_URL, REGION, URL_SERIE_DETAIL, API_OPTIONS } from "../../AppConsts";
+import {
+  BASE_IMG_URL,
+  REGION,
+  URL_SERIE_DETAIL,
+  API_OPTIONS,
+} from "../../AppConsts";
 
 function UpdatedTitle({
   id,
@@ -20,21 +25,26 @@ function UpdatedTitle({
   };
 
   useEffect(() => fetchInfo, []);
-  
+
   return (
     <div className="flex flex-row gap-6  justify-center">
-      <img
-        className="object-cover h-28 rounded-md overflow-hidden self-center"
-        alt=""
-        src={BASE_IMG_URL+data?.poster_path}
-      ></img>
+      <div className=" rounded-md overflow-hidden ">
+        <img
+          className="object-cover h-28 self-center transition hover:scale-105"
+          alt=""
+          src={BASE_IMG_URL + data?.poster_path}
+        ></img>
+      </div>
 
       <div className="flex flex-col justify-center update_info">
-        <div className="font-semibold">{data?.name}</div>
+        <div className="font-semibold transition hover:text-red-600">{data?.name}</div>
         <div className="font-normal whitespace-nowrap">
-          Series/S {data?.number_of_seasons}/E {data?.last_episode_to_air?.episode_number}
+          Series/S {data?.number_of_seasons}/E{" "}
+          {data?.last_episode_to_air?.episode_number}
         </div>
-        <div className="font-normal">{data?.last_episode_to_air?.air_date?.split("-")[0]}</div>
+        <div className="font-normal">
+          {data?.last_episode_to_air?.air_date?.split("-")[0]}
+        </div>
       </div>
     </div>
   );

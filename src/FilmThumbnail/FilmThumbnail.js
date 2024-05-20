@@ -24,13 +24,17 @@ export default function FilmThumbnail({
 
   return (
     <div className="flex flex-col gap-y-4">
+      <div className="object-cover rounded-xl overflow-hidden">
       <img
-        className="object-cover poster rounded-xl"
+        // className=" poster rounded-xl transition hover:scale-105 overflow-hidden"
+        className="transition hover:scale-105 "
         src={BASE_IMG_URL+imageUrl}
         alt={title}
       ></img>
+      </div>
+      
       <div className="flex flex-row items-center justify-between">
-        <div className="font-bold text-2xl text-ellipsis overflow-hidden whitespace-nowrap">{title}</div>
+        <div className="font-bold text-2xl text-ellipsis overflow-hidden whitespace-nowrap transition-colors hover:text-red-600">{title}</div>
         <DurationLabel type={type} season={data.number_of_seasons} key={data.id} duration={data.runtime}/>
       </div>
     </div>

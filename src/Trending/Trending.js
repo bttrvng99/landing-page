@@ -21,7 +21,7 @@ export default function Trending() {
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-2xl">Trending</div>
-        <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
+        <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
           <Arrow />
         </button>

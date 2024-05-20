@@ -50,7 +50,7 @@ export default function Recommended() {
             );
           })}
         </div>
-        <button className="flex flex-row items-center gap-2 font-semibold opacity-50">
+        <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
           <Arrow />
         </button>
