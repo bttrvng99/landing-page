@@ -1,13 +1,24 @@
 import "./Suggestions.css";
 import { useState, useEffect } from "react";
-import { API_OPTIONS, MOVIE, URL_MOVIE_DETAIL } from "../../AppConsts";
+import {
+  API_OPTIONS,
+  MOVIE,
+  REGION,
+  URL_MOVIE_DETAIL,
+  URL_SERIE_DETAIL,
+} from "../../AppConsts";
 import FilmThumbnail from "../../FilmThumbnail/FilmThumbnail";
 
-export default function Suggestions({ id }) {
+export default function Suggestions({ id, mediaType }) {
   const [data, setData] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_MOVIE_DETAIL + id + "/recommendations", API_OPTIONS)
+    return fetch(
+      `${
+        mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+      }${id}/recommendations${REGION}&page=1`,
+      API_OPTIONS
+    )
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 8)))
       .catch((err) => console.error(err));
@@ -24,10 +35,11 @@ export default function Suggestions({ id }) {
             <button key={`rec${index}`}>
               <FilmThumbnail
                 id={entry.id}
-                type={MOVIE}
+                type={mediaType}
                 imageUrl={entry.poster_path}
                 key={entry.id}
                 title={entry.title}
+                releaseType={mediaType}
               />
             </button>
           );

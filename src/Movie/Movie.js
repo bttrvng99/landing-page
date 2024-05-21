@@ -38,9 +38,9 @@ function Movie() {
         background={data?.backdrop_path}
         key={`player${CONTENT_ID}`}
       />
-      <CurrentInfo data={data} id={CONTENT_ID} key={`movieInfo${CONTENT_ID}`} />
-      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} />
-      <CommentSection id={CONTENT_ID} />
+      <CurrentInfo data={data} id={CONTENT_ID} key={`movieInfo${CONTENT_ID}`} mediaType={MOVIE}/>
+      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} mediaType={MOVIE}/>
+      <CommentSection id={CONTENT_ID} mediaType={MOVIE}/>
     </div>
   );
 }

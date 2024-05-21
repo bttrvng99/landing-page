@@ -18,7 +18,7 @@ export default function FilmThumbnail({
   season = 1,
   imageUrl = "https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg",
   type,
-  releaseType,
+  // releaseType,
 }) {
   const [data, setData] = useState({});
 
@@ -47,7 +47,7 @@ export default function FilmThumbnail({
 
       <div className="flex flex-row items-center justify-between">
         <Link
-          to={`${releaseType === MOVIE ? "/movie/" : "/tv/"}${data?.id}`}
+          to={`${type === MOVIE ? "/movie/" : "/tv/"}${data?.id}`}
           className="font-bold text-2xl text-ellipsis overflow-hidden whitespace-nowrap transition-colors hover:text-red-600"
         >
           {title}

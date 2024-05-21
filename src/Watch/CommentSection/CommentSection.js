@@ -1,14 +1,25 @@
 import "./CommentSection.css";
 import { useState, useEffect } from "react";
-import { API_OPTIONS, BASE_IMG_URL, URL_MOVIE_DETAIL } from "../../AppConsts";
+import {
+  API_OPTIONS,
+  BASE_IMG_URL,
+  MOVIE,
+  URL_MOVIE_DETAIL,
+  URL_SERIE_DETAIL,
+} from "../../AppConsts";
 import Comment from "./Comment/Comment";
 import tmp from "../../assets/tmp.jpg";
 
-export default function CommentSection({ id }) {
+export default function CommentSection({ id, mediaType }) {
   const [data, setData] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_MOVIE_DETAIL + id + "/reviews", API_OPTIONS)
+    return fetch(
+      `${
+        mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+      }${id}/reviews`,
+      API_OPTIONS
+    )
       .then((response) => response.json())
       .then((response) => setData(response.results))
       .catch((err) => console.error(err));
@@ -30,14 +41,13 @@ export default function CommentSection({ id }) {
           }
           className="rounded-full w-32 h-32"
         />
-        <input
-          type="text"
-          className="w-full bg-white text-black rounded-xl indent-1"
-          placeholder="Write your comments here"
-        />
+        <textarea
+          rows="3"
+          className="w-full bg-white text-black rounded-xl indent-1 p-2"
+          placeholder="Write your comments here..."
+        ></textarea>
       </div>
       {data?.map((comment) => {
-        // console.log(comment);
         return <Comment key={comment.id} data={comment} />;
       })}
     </div>

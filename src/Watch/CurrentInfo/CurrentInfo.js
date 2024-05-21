@@ -3,6 +3,7 @@ import {
   URL_MOVIE_DETAIL,
   REGION,
   API_OPTIONS,
+  URL_SERIE_DETAIL,
 } from "../../AppConsts";
 import { ReactComponent as Add } from "../../assets/Vector-plus.svg";
 import { ReactComponent as Calendar } from "../../assets/Group-calendar.svg";
@@ -10,24 +11,37 @@ import { ReactComponent as Time } from "../../assets/Vector-time.svg";
 import { ReactComponent as Rating } from "../../assets/Vector-rating.svg";
 import GenreTag from "./GenreTag/GenreTag";
 import { useEffect, useState } from "react";
+import { MOVIE } from "../../AppConsts";
 
-function CurrentInfo({ data, id }) {
+function CurrentInfo({ data, id, mediaType }) {
   var [cast, setCast] = useState([]);
+  // var [crew, setCrew] = useState([]);
 
   const fetchCast = async () => {
     try {
+      console.log(
+        "url",
+        `${
+          mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+        }${id}/credits${REGION}`
+      );
       const response = await fetch(
-        `${URL_MOVIE_DETAIL}${id}/credits${REGION}`,
+        `${
+          mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+        }${id}/credits${REGION}`,
         API_OPTIONS
       );
       const response_1 = await response.json();
-      setCast(response_1.cast);
+      if (response_1.crew && !response_1.cast.length) setCast(response_1.crew);
+      else setCast(response_1.cast);
     } catch (err) {
       return console.error(err);
     }
   };
 
   useEffect(() => fetchCast, []);
+
+  console.log("cast", cast);
 
   return (
     <div className="flex flex-row gap-8">
@@ -38,7 +52,9 @@ function CurrentInfo({ data, id }) {
       />
       <div className="flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h1 className="text-3xl font-semibold">{data.title}</h1>
+          <h1 className="text-3xl font-semibold">
+            {data?.title ? data?.title : data?.name}
+          </h1>
           <button className="flex flex-row bg-red-600 rounded-xl p-4 items-center gap-2 text-base font-normal transition hover:bg-red-500 active:bg-red-700">
             <Add />
             Add to Favourites
@@ -52,7 +68,7 @@ function CurrentInfo({ data, id }) {
             <Calendar /> {data?.release_Year}
           </div>
           <div className="flex flex-row items-center p-2 gap-2">
-            <Time /> {calculateRuntime(data?.runtime)}
+            <Time /> {calculateRuntime(data?.runtime ? data?.runtime : "")}
           </div>
           <div className="flex flex-row items-center p-2 gap-2">
             <Rating />
@@ -85,7 +101,9 @@ function CurrentInfo({ data, id }) {
             </tr>
             <tr>
               <th className="font-normal text-end">Release date: </th>
-              <td className="text-start">{data?.release_date}</td>
+              <td className="text-start">
+                {data?.release_date ? data?.release_date : data?.first_air_date}
+              </td>
             </tr>
             <tr>
               <th className="font-normal text-end">Production: </th>
@@ -116,7 +134,9 @@ function CurrentInfo({ data, id }) {
 function calculateRuntime(duration_minutes) {
   var hours = Math.floor(duration_minutes / 60);
   var minutes = duration_minutes % 60;
-  return `${hours}:${(minutes < 10 ? "0" : "")}${minutes}:00`;
+  return `${hours > 0 ? hours : ""}${hours > 0 ? ":" : ""}${
+    minutes < 10 ? "0" : ""
+  }${minutes}:00`;
 }
 
 export default CurrentInfo;

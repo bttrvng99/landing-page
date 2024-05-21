@@ -4,6 +4,7 @@ import {
   API_OPTIONS,
   MOVIE,
   REGION,
+  SERIES,
   URL_MOVIE_DETAIL,
   URL_SERIE_DETAIL,
 } from "../AppConsts";
@@ -19,15 +20,15 @@ function TvSeries() {
   console.log(CONTENT_ID);
   const fetchInfo = async () => {
     try {
-      console.log("url", URL_SERIE_DETAIL + CONTENT_ID + REGION);
+      // console.log("url", URL_SERIE_DETAIL + CONTENT_ID + REGION);
       const response = await fetch(
         URL_SERIE_DETAIL + CONTENT_ID + REGION,
         API_OPTIONS
       );
       const response_1 = await response.json();
-      response_1.release_Year = response_1?.release_date.split("-")[0];
+      response_1.release_Year = response_1?.first_air_date.split("-")[0];
       response_1.vote_average = response_1?.vote_average.toFixed(1);
-      console.log("response_1: ", response_1);
+      // console.log("response_1: ", response_1);
       setData(response_1);
     } catch (err) {
       return console.error(err);
@@ -42,9 +43,9 @@ function TvSeries() {
         background={data?.backdrop_path}
         key={`player${CONTENT_ID}`}
       />
-      <CurrentInfo data={data} id={CONTENT_ID} key={`movieInfo${CONTENT_ID}`} />
-      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} />
-      <CommentSection id={CONTENT_ID} />
+      <CurrentInfo data={data} id={CONTENT_ID} key={`seriesInfo${CONTENT_ID}`} mediaType={SERIES}/>
+      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} mediaType={SERIES}/>
+      <CommentSection id={CONTENT_ID} mediaType={SERIES}/>
     </div>
   );
 }
