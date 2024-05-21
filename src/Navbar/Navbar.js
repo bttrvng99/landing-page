@@ -8,17 +8,17 @@ const buttonsLeft = [
   {
     key: "home",
     text: "Home",
-    isHome: true,
+    link: ''
   },
   {
     key: "genre",
     text: "Genre",
-    isHome: false,
+    link: ''
   },
   {
     key: "country",
     text: "Country",
-    isHome: false,
+    link: ''
   },
 ];
 
@@ -26,23 +26,23 @@ const buttonsRight = [
   {
     key: "movies",
     text: "Movies",
-    isHome: false,
+    link: ''
   },
   {
     key: "series",
     text: "Series",
-    isHome: false,
+    link: ''
   },
   {
     key: "animation",
     text: "Animation",
-    isHome: false,
+    link: ''
   },
 ];
 
 function Navbar() {
   return (
-    <div className="flex flex-row justify-center p-6 gap-6 bg-black">
+    <div className="flex flex-row justify-center p-6 gap-6 bg-black items-center">
       {/* {buttonsLeft.map((button) => {
         return (
           <NavbarButton text={button.text} key={button.key}></NavbarButton>
@@ -58,7 +58,7 @@ function Navbar() {
       <NavbarButtonGroup group={buttonsRight} key={2}></NavbarButtonGroup>
       <NavbarButton text={"Login/SignUp"} key={7}></NavbarButton>
       <button>
-        <Notification />
+        <Notification className="hover:fill-red-600 transititon"/>
       </button>
     </div>
   );

@@ -3,6 +3,7 @@ import TrendingGenreTag from "../TrendingGenreTag/TrendingGenreTag";
 import TrendingThumbnail from "../TrendingThumbnail/TrendingThumbnail";
 import { REGION, URL_MOVIE_DETAIL, API_OPTIONS } from "../../AppConsts";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function TrendingTitles({
   title,
@@ -30,9 +31,9 @@ export default function TrendingTitles({
     <div className="flex flex-col gap-y-2">
       <TrendingThumbnail duration={data?.runtime} rating={rating} imgUrl={imgUrl} />
       <div className="flex flex-row items-center justify-between">
-        <div className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-red-600 transition-colors">
+        <Link to={'/watch/'+data?.id} className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-red-600 transition-colors">
           {title}
-        </div>
+        </Link>
         <div className="flex flex-row gap-2">
           {genres?.map((genre) => {
             return(

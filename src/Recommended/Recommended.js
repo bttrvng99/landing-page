@@ -56,9 +56,9 @@ export default function Recommended() {
         </button>
       </div>
       <div className="grid grid-cols-4 gap-8">
-        {data?.map((entry) => {
+        {data?.map((entry, index) => {
           return (
-            <button>
+            <button key={'rec'+index}>
               <FilmThumbnail
                 id={entry.id}
                 type={MOVIE}

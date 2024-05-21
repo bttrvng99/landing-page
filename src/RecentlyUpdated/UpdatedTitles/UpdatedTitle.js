@@ -6,6 +6,7 @@ import {
   URL_SERIE_DETAIL,
   API_OPTIONS,
 } from "../../AppConsts";
+import { Link } from "react-router-dom";
 
 function UpdatedTitle({
   id,
@@ -27,7 +28,7 @@ function UpdatedTitle({
   useEffect(() => fetchInfo, []);
 
   return (
-    <div className="flex flex-row gap-6  justify-center">
+    <button className="flex flex-row gap-6  justify-center text-left items-center">
       <div className=" rounded-md overflow-hidden ">
         <img
           className="object-cover h-28 self-center transition hover:scale-105"
@@ -37,7 +38,7 @@ function UpdatedTitle({
       </div>
 
       <div className="flex flex-col justify-center update_info">
-        <div className="font-semibold transition hover:text-red-600">{data?.name}</div>
+        <Link to={'/watch/'+data?.id} className="font-semibold transition hover:text-red-600">{data?.name}</Link>
         <div className="font-normal whitespace-nowrap">
           Series/S {data?.number_of_seasons}/E{" "}
           {data?.last_episode_to_air?.episode_number}
@@ -46,7 +47,7 @@ function UpdatedTitle({
           {data?.last_episode_to_air?.air_date?.split("-")[0]}
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 

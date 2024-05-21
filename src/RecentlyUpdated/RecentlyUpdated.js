@@ -24,14 +24,10 @@ export default function RecentlyUpdated() {
       <div className="relative">
         <div className="flex flex-row gap-x-10 overflow-hidden">
           {data?.map((serie) => {
-            return (
-              <button className="text-left">
-                <UpdatedTitle key={serie.id} id={serie.id} />
-              </button>
-            );
+            return <UpdatedTitle key={serie.id} id={serie.id} />;
           })}
         </div>
-        <UpdatedButton/>
+        <UpdatedButton id={"updated"} />
       </div>
     </div>
   );

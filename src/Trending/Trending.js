@@ -23,24 +23,22 @@ export default function Trending() {
         <div className="font-bold text-2xl">Trending</div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
-          <Arrow />
+          <Arrow key={'arrow'}/>
         </button>
       </div>
       <div className="grid grid-cols-3 gap-x-8">
-        {data?.map((entry) => {
-          return (
-            <button>
-              <TrendingTitles
-                rating={entry.vote_average}
-                duration={"2:13:00"}
-                key={entry.id}
-                title={entry.original_title}
-                imgUrl={entry.poster_path}
-                id={entry.id}
-              />
-            </button>
-          );
-        })}
+        {data?.map((entry, index) =>
+          <button key={index}>
+            <TrendingTitles
+              rating={entry.vote_average}
+              duration={"2:13:00"}
+              key={entry.id}
+              title={entry.original_title}
+              imgUrl={entry.poster_path}
+              id={entry.id}
+            />
+          </button>
+          )}
       </div>
     </div>
   );

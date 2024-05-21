@@ -2,6 +2,7 @@ import DurationLabel from "./DurationLabel/DurationLabel";
 import "./FilmThumbnail.css";
 import { useState, useEffect } from "react";
 import { BASE_IMG_URL, URL_MOVIE_DETAIL, REGION, API_OPTIONS, MOVIE, URL_SERIE_DETAIL } from "../AppConsts";
+import { Link } from "react-router-dom";
 
 export default function FilmThumbnail({
   id,
@@ -34,7 +35,7 @@ export default function FilmThumbnail({
       </div>
       
       <div className="flex flex-row items-center justify-between">
-        <div className="font-bold text-2xl text-ellipsis overflow-hidden whitespace-nowrap transition-colors hover:text-red-600">{title}</div>
+        <Link to={'/watch/'+data?.id} className="font-bold text-2xl text-ellipsis overflow-hidden whitespace-nowrap transition-colors hover:text-red-600">{title}</Link>
         <DurationLabel type={type} season={data.number_of_seasons} key={data.id} duration={data.runtime}/>
       </div>
     </div>
