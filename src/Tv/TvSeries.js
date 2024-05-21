@@ -1,35 +1,27 @@
-import "./Watch.css";
-import ViewScreen from "./ViewScreen/ViewScreen";
-import CurrentInfo from "./CurrentInfo/CurrentInfo";
+import "./TvSeries.css";
 import { useEffect, useState } from "react";
 import {
   API_OPTIONS,
+  MOVIE,
   REGION,
   URL_MOVIE_DETAIL,
   URL_SERIE_DETAIL,
-  MOVIE,
 } from "../AppConsts";
-import Suggestions from "./Suggestions/Suggestions";
-import CommentSection from "./CommentSection/CommentSection";
+import CommentSection from "../Watch/CommentSection/CommentSection";
+import CurrentInfo from "../Watch/CurrentInfo/CurrentInfo";
+import Suggestions from "../Watch/Suggestions/Suggestions";
+import ViewScreen from "../Watch/ViewScreen/ViewScreen";
 
 let CONTENT_ID = 0;
-let type = MOVIE;
 
-function Watch() {
+function TvSeries() {
   var [data, setData] = useState({});
   console.log(CONTENT_ID);
   const fetchInfo = async () => {
     try {
-      console.log(
-        "url",
-        (type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL) +
-          CONTENT_ID +
-          REGION
-      );
+      console.log("url", URL_SERIE_DETAIL + CONTENT_ID + REGION);
       const response = await fetch(
-        (type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL) +
-          CONTENT_ID +
-          REGION,
+        URL_SERIE_DETAIL + CONTENT_ID + REGION,
         API_OPTIONS
       );
       const response_1 = await response.json();
@@ -50,11 +42,7 @@ function Watch() {
         background={data?.backdrop_path}
         key={`player${CONTENT_ID}`}
       />
-      <CurrentInfo
-        data={data}
-        id={CONTENT_ID}
-        key={`movieInfo${CONTENT_ID}`}
-      />
+      <CurrentInfo data={data} id={CONTENT_ID} key={`movieInfo${CONTENT_ID}`} />
       <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} />
       <CommentSection id={CONTENT_ID} />
     </div>
@@ -62,14 +50,10 @@ function Watch() {
 }
 
 export async function loader({ params }) {
-  // const Url = new URL(param)
   CONTENT_ID = params?.id;
-  // type = params?.type;
-  console.log('params', CONTENT_ID, type)
+  console.log("params", CONTENT_ID);
   window.scrollTo({ behavior: "smooth", top: 0 });
   return null;
 }
 
-// export async function getContent(id) {}
-
-export default Watch;
+export default TvSeries;

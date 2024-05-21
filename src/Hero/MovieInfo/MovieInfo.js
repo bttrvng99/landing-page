@@ -43,7 +43,7 @@ function MovieInfo({ id, release_date, vote_average }) {
 function calculateRuntime(duration_minutes) {
   var hours = Math.floor(duration_minutes / 60);
   var minutes = duration_minutes % 60;
-  return hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":00";
+  return `${hours}:${(minutes < 10 ? "0" : "")}${minutes}:00`;
 }
 
 export default MovieInfo;

@@ -11,13 +11,13 @@ import { ReactComponent as Rating } from "../../assets/Vector-rating.svg";
 import GenreTag from "./GenreTag/GenreTag";
 import { useEffect, useState } from "react";
 
-function CurrentMovieInfo({ data, id }) {
+function CurrentInfo({ data, id }) {
   var [cast, setCast] = useState([]);
 
   const fetchCast = async () => {
     try {
       const response = await fetch(
-        URL_MOVIE_DETAIL + id + "/credits" + REGION,
+        `${URL_MOVIE_DETAIL}${id}/credits${REGION}`,
         API_OPTIONS
       );
       const response_1 = await response.json();
@@ -116,7 +116,7 @@ function CurrentMovieInfo({ data, id }) {
 function calculateRuntime(duration_minutes) {
   var hours = Math.floor(duration_minutes / 60);
   var minutes = duration_minutes % 60;
-  return hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":00";
+  return `${hours}:${(minutes < 10 ? "0" : "")}${minutes}:00`;
 }
 
-export default CurrentMovieInfo;
+export default CurrentInfo;

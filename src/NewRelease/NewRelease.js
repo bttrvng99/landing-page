@@ -6,9 +6,9 @@ import { MOVIE, REGION } from "../AppConsts";
 import { ReactComponent as Arrow } from "../assets/Vector-arrow.svg";
 
 const URL_NEW_MOVIES =
-  "https://api.themoviedb.org/3/movie/upcoming" + REGION + "&page=1";
+  `https://api.themoviedb.org/3/movie/upcoming${REGION}&page=1`;
 const URL_NEW_SERIES =
-  "https://api.themoviedb.org/3/tv/airing_today" + REGION + "&page=1";
+  `https://api.themoviedb.org/3/tv/airing_today${REGION}&page=1`;
 
 export default function NewRelease({ releaseType }) {
   const [data, setData] = useState([]);
@@ -45,6 +45,7 @@ export default function NewRelease({ releaseType }) {
                 imageUrl={entry.poster_path}
                 key={entry.id+index}
                 title={releaseType === MOVIE ? entry.title : entry.name}
+                releaseType={releaseType}
               />
             </button>
           );

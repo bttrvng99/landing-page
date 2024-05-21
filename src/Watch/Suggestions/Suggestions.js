@@ -7,7 +7,7 @@ export default function Suggestions({ id }) {
   const [data, setData] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_MOVIE_DETAIL + id + "/similar", API_OPTIONS)
+    return fetch(URL_MOVIE_DETAIL + id + "/recommendations", API_OPTIONS)
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 8)))
       .catch((err) => console.error(err));
@@ -21,7 +21,7 @@ export default function Suggestions({ id }) {
       <div className="grid grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
-            <button key={"rec" + index}>
+            <button key={`rec${index}`}>
               <FilmThumbnail
                 id={entry.id}
                 type={MOVIE}

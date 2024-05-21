@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App, {loader as appLoader} from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-// import Root, { loader as rootLoader } from "./routes/root";
 import ErrorPage from './error-page';
-import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
-import Watch, { loader as contentLoader } from './Watch/Watch';
+import Movie, {loader as movieLoader} from './Movie/Movie';
+import TvSeries, {loader as tvLoader} from './Tv/TvSeries';
 import Contact from './routes/contacts';
 
 
@@ -20,7 +19,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-    loader: appLoader,
     children: [
       {
         path: '/',
@@ -31,9 +29,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "watch/:id",
-        element: <Watch />,
-        loader: contentLoader,
+        path: "movie/:id",
+        element: <Movie />,
+        loader: movieLoader,
+      },
+      {
+        path: "tv/:id",
+        element: <TvSeries />,
+        loader: tvLoader,
       },
     ]
   },
