@@ -25,7 +25,7 @@ export default function NewRelease({ releaseType }) {
 
   useEffect(() => {fetchInfo()}, []);
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-2xl">
           New Releases - {releaseType === MOVIE ? "Movies" : "Series"}
@@ -35,7 +35,7 @@ export default function NewRelease({ releaseType }) {
           <Arrow />
         </button>
       </div>
-      <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
             <button key={index}>

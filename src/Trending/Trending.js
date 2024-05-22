@@ -18,7 +18,7 @@ export default function Trending() {
 
   useEffect(() => {fetchInfo()}, []);
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-2xl">Trending</div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
@@ -26,7 +26,7 @@ export default function Trending() {
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
         {data?.map((entry, index) =>
           <button key={index}>
             <TrendingTitles

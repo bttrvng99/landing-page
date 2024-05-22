@@ -42,7 +42,7 @@ const buttonsRight = [
 
 function Navbar() {
   return (
-    <div className="flex flex-row justify-center p-6 gap-6 bg-black items-center">
+    <div className="flex flex-col lg:flex-row justify-center py-6 gap-6 bg-black items-center">
       <NavbarButtonGroup group={buttonsLeft}></NavbarButtonGroup>
       <NavbarSearch></NavbarSearch>
       <NavbarButtonGroup group={buttonsRight}></NavbarButtonGroup>

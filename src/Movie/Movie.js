@@ -29,7 +29,7 @@ function Movie() {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col mx-40 mt-12 mb-40 gap-20">
+    <div className="container mx-auto">
       <ViewScreen background={data?.backdrop_path} />
       <CurrentInfo data={data} id={CONTENT_ID} mediaType={MOVIE} />
       <Suggestions id={CONTENT_ID} mediaType={MOVIE} />

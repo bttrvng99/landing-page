@@ -36,7 +36,7 @@ export default function Recommended() {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between items-center">
         <div className="font-bold text-2xl flex flex-col lg:flex-row gap-2 lg:gap-6 lg:items-center">
           <div>Recommended</div>
@@ -55,7 +55,7 @@ export default function Recommended() {
           <Arrow />
         </button>
       </div>
-      <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
             <button key={index}>

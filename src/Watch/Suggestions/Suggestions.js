@@ -27,9 +27,9 @@ export default function Suggestions({ id, mediaType }) {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 mt-10">
       <h1 className="text-2xl font-semibold">You may also like</h1>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
             <button key={`rec${index}`}>

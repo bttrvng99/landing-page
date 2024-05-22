@@ -36,13 +36,13 @@ function CurrentInfo({ data, id, mediaType }) {
   useEffect(() => {fetchCast()}, []);
 
   return (
-    <div className="flex flex-row gap-8">
+    <div className="flex flex-col md:flex-row gap-8 mt-24">
       <img
         alt="Current Movie"
-        className="w-1/3 h-fit"
+        className="md:w-1/3 h-fit"
         src={BASE_IMG_URL + data.poster_path}
       />
-      <div className="flex flex-col w-2/3">
+      <div className="flex flex-col md:w-2/3">
         <div className="flex flex-col items-start xl:flex-row xl:justify-between xl:items-center gap-2">
           <h1 className="text-3xl font-semibold">
             {data?.title ? data?.title : data?.name}

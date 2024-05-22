@@ -19,22 +19,28 @@ function MovieInfo({ id, release_date, vote_average }) {
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => {fetchInfo()}, []);
+  useEffect(() => {
+    fetchInfo();
+  }, []);
 
   return (
-    <div className="flex flex-row gap-2">
-      {genres?.map((genre) => {
-        return <GenreTag genre={genre.name} key={genre.id} />;
-      })}
-      <div className="flex flex-row items-center p-2 gap-2">
-        <Calendar /> {release_date.split("-")[0]}
+    <div className="hidden sm:flex sm:flex-col lg:flex-row gap-2">
+      <div className="flex flex-row gap-2">
+        {genres?.map((genre) => {
+          return <GenreTag genre={genre.name} key={genre.id} />;
+        })}
       </div>
-      <div className="flex flex-row items-center p-2 gap-2">
-        <Time /> {calculateRuntime(data?.runtime)}
-      </div>
-      <div className="flex flex-row items-center p-2 gap-2">
-        <Rating />
-        {vote_average.toFixed(1)}
+      <div className="flex flex-row gap-2">
+        <div className="flex flex-row items-center p-2 gap-2">
+          <Calendar /> {release_date.split("-")[0]}
+        </div>
+        <div className="flex flex-row items-center p-2 gap-2">
+          <Time /> {calculateRuntime(data?.runtime)}
+        </div>
+        <div className="flex flex-row items-center p-2 gap-2">
+          <Rating />
+          {vote_average.toFixed(1)}
+        </div>
       </div>
     </div>
   );

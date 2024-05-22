@@ -19,7 +19,7 @@ export default function RecentlyUpdated() {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 my-20">
       <div className="text-2xl">Recently Updated</div>
       <div className="relative">
         <div className="flex flex-row gap-x-10 overflow-hidden">

@@ -28,9 +28,9 @@ export default function CommentSection({ id, mediaType }) {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col gap-y-10">
+    <div className="flex flex-col gap-y-10 my-20">
       <div className="font-bold text-2xl">Comments</div>
-      <div className="flex flex-row gap-x-8">
+      <div className="flex flex-row gap-8 items-center">
         <img
           alt={data?.author}
           src={

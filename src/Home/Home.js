@@ -9,7 +9,7 @@ function Home() {
   return (
     <div>
       <Hero />
-      <div className="flex flex-col mx-40 mt-20 mb-40 gap-20">
+      <div className="container mx-auto">
         <RecentlyUpdated />
         <Trending />
         <NewRelease releaseType={MOVIE} />
