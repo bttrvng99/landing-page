@@ -23,16 +23,15 @@ export default function Trending() {
         <div className="font-bold text-2xl">Trending</div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
-          <Arrow key={'arrow'}/>
+          <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-3 gap-x-8">
+      <div className="grid grid-cols-2 xl:grid-cols-3 gap-8 items-start">
         {data?.map((entry, index) =>
           <button key={index}>
             <TrendingTitles
               rating={entry.vote_average}
               duration={"2:13:00"}
-              key={entry.id}
               title={entry.original_title}
               imgUrl={entry.poster_path}
               id={entry.id}

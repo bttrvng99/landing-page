@@ -1,13 +1,6 @@
 import "./TvSeries.css";
 import { useEffect, useState } from "react";
-import {
-  API_OPTIONS,
-  MOVIE,
-  REGION,
-  SERIES,
-  URL_MOVIE_DETAIL,
-  URL_SERIE_DETAIL,
-} from "../AppConsts";
+import { API_OPTIONS, REGION, SERIES, URL_SERIE_DETAIL } from "../AppConsts";
 import CommentSection from "../Watch/CommentSection/CommentSection";
 import CurrentInfo from "../Watch/CurrentInfo/CurrentInfo";
 import Suggestions from "../Watch/Suggestions/Suggestions";
@@ -20,7 +13,6 @@ function TvSeries() {
   var [data, setData] = useState({});
   const fetchInfo = async () => {
     try {
-      // console.log("url", URL_SERIE_DETAIL + CONTENT_ID + REGION);
       const response = await fetch(
         URL_SERIE_DETAIL + CONTENT_ID + REGION,
         API_OPTIONS
@@ -28,7 +20,6 @@ function TvSeries() {
       const response_1 = await response.json();
       response_1.release_Year = response_1?.first_air_date.split("-")[0];
       response_1.vote_average = response_1?.vote_average.toFixed(1);
-      // console.log("response_1: ", response_1);
       setData(response_1);
     } catch (err) {
       return console.error(err);
@@ -39,14 +30,11 @@ function TvSeries() {
 
   return (
     <div className="flex flex-col mx-40 mt-12 mb-40 gap-20">
-      <ViewScreen
-        background={data?.backdrop_path}
-        key={`player${CONTENT_ID}`}
-      />
-      <CurrentInfo data={data} id={CONTENT_ID} key={`seriesInfo${CONTENT_ID}`} mediaType={SERIES}/>
-      <TvEpisodes id={CONTENT_ID} key={`ep${CONTENT_ID}`}/>
-      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} mediaType={SERIES}/>
-      <CommentSection id={CONTENT_ID} mediaType={SERIES}/>
+      <ViewScreen background={data?.backdrop_path} />
+      <CurrentInfo data={data} id={CONTENT_ID} mediaType={SERIES} />
+      <TvEpisodes id={CONTENT_ID} />
+      <Suggestions id={CONTENT_ID} mediaType={SERIES} />
+      <CommentSection id={CONTENT_ID} mediaType={SERIES} />
     </div>
   );
 }

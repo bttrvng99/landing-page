@@ -27,7 +27,7 @@ export default function RecentlyUpdated() {
             return <UpdatedTitle key={serie.id} id={serie.id} />;
           })}
         </div>
-        <UpdatedButton id={"updated"} />
+        <UpdatedButton />
       </div>
     </div>
   );

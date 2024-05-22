@@ -29,9 +29,9 @@ function UpdatedTitle({
 
   return (
     <button className="flex flex-row gap-6  justify-center text-left items-center">
-      <div className=" rounded-md overflow-hidden ">
+      <div className=" rounded-md overflow-hidden w-16">
         <img
-          className="object-cover h-28 self-center transition hover:scale-105"
+          className="object-cover h-28  self-center transition hover:scale-105"
           alt=""
           src={BASE_IMG_URL + data?.poster_path}
         ></img>

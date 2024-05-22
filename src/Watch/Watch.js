@@ -17,25 +17,17 @@ let type = MOVIE;
 
 function Watch() {
   var [data, setData] = useState({});
-  console.log(CONTENT_ID);
   const fetchInfo = async () => {
     try {
-      console.log(
-        "url",
-        (type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL) +
-          CONTENT_ID +
-          REGION
-      );
       const response = await fetch(
-        (type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL) +
-          CONTENT_ID +
-          REGION,
+        `${
+          type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+        }${CONTENT_ID}${REGION}`,
         API_OPTIONS
       );
       const response_1 = await response.json();
       response_1.release_Year = response_1?.release_date.split("-")[0];
       response_1.vote_average = response_1?.vote_average.toFixed(1);
-      console.log("response_1: ", response_1);
       setData(response_1);
     } catch (err) {
       return console.error(err);
@@ -46,16 +38,9 @@ function Watch() {
 
   return (
     <div className="flex flex-col mx-40 mt-12 mb-40 gap-20">
-      <ViewScreen
-        background={data?.backdrop_path}
-        key={`player${CONTENT_ID}`}
-      />
-      <CurrentInfo
-        data={data}
-        id={CONTENT_ID}
-        key={`movieInfo${CONTENT_ID}`}
-      />
-      <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} />
+      <ViewScreen background={data?.backdrop_path} />
+      <CurrentInfo data={data} id={CONTENT_ID} />
+      <Suggestions id={CONTENT_ID} />
       <CommentSection id={CONTENT_ID} />
     </div>
   );

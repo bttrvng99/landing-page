@@ -35,15 +35,14 @@ export default function NewRelease({ releaseType }) {
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-x-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
-            <button key={'btn'+index}>
+            <button key={index}>
               <FilmThumbnail
                 id={entry.id}
                 type={releaseType}
                 imageUrl={entry.poster_path}
-                key={entry.id+index}
                 title={releaseType === MOVIE ? entry.title : entry.name}
                 releaseType={releaseType}
               />

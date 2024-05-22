@@ -5,7 +5,6 @@ import { BASE_IMG_URL } from "../../../AppConsts";
 import tmp from "../../../assets/tmp.jpg";
 
 function Comment({ data }) {
-  // console.log('comment', data);
   return (
     <div className="flex flex-row gap-x-8">
       <img

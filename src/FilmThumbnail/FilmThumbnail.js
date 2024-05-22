@@ -55,7 +55,6 @@ export default function FilmThumbnail({
         <DurationLabel
           type={type}
           season={data.number_of_seasons}
-          key={data.id}
           duration={data.runtime}
         />
       </div>

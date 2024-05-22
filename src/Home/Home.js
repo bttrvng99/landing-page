@@ -8,12 +8,12 @@ import { MOVIE, SERIES } from "../AppConsts";
 function Home() {
   return (
     <div>
-      <Hero key={2} />
+      <Hero />
       <div className="flex flex-col mx-40 mt-20 mb-40 gap-20">
-        <RecentlyUpdated key={3} />
-        <Trending key={4} />
-        <NewRelease releaseType={MOVIE} key={5} />
-        <NewRelease releaseType={SERIES} key={6} />
+        <RecentlyUpdated />
+        <Trending />
+        <NewRelease releaseType={MOVIE} />
+        <NewRelease releaseType={SERIES} />
         <Recommended />
       </div>
     </div>

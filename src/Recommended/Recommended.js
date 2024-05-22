@@ -38,7 +38,7 @@ export default function Recommended() {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between items-center">
-        <div className="font-bold text-2xl flex flex-row gap-6 items-center">
+        <div className="font-bold text-2xl flex flex-row gap-2 lg:gap-6 items-center">
           <div>Recommended</div>
           {FORMATS.map((format) => {
             return (
@@ -55,15 +55,14 @@ export default function Recommended() {
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
-            <button key={'rec'+index}>
+            <button key={index}>
               <FilmThumbnail
                 id={entry.id}
                 type={MOVIE}
                 imageUrl={entry.poster_path}
-                key={entry.id}
                 title={entry.title}
               />
             </button>

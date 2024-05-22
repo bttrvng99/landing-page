@@ -42,8 +42,8 @@ function CurrentInfo({ data, id, mediaType }) {
         className="w-1/3 h-fit"
         src={BASE_IMG_URL + data.poster_path}
       />
-      <div className="flex flex-col">
-        <div className="flex flex-row justify-between items-center">
+      <div className="flex flex-col w-2/3">
+        <div className="flex flex-col items-start xl:flex-row xl:justify-between xl:items-center gap-2">
           <h1 className="text-3xl font-semibold">
             {data?.title ? data?.title : data?.name}
           </h1>
@@ -52,19 +52,21 @@ function CurrentInfo({ data, id, mediaType }) {
             Add to Favourites
           </button>
         </div>
-        <div className="flex flex-row gap-2 mt-16 mb-6">
-          {data?.genres?.map((genre) => {
+        <div className="flex flex-col lg:flex-row gap-2 mt-16 mb-6">
+          <div className="flex flex-row gap-2">{data?.genres?.map((genre) => {
             return <GenreTag genre={genre.name} key={genre.id} />;
-          })}
-          <div className="flex flex-row items-center p-2 gap-2">
-            <Calendar /> {data?.release_Year}
-          </div>
-          <div className="flex flex-row items-center p-2 gap-2">
-            <Time /> {calculateRuntime(data?.runtime ? data?.runtime : "")}
-          </div>
-          <div className="flex flex-row items-center p-2 gap-2">
-            <Rating />
-            {data?.vote_average}
+          })}</div>
+          <div className="flex flex-row">
+            <div className="flex flex-row items-center p-2 gap-2">
+              <Calendar /> {data?.release_Year}
+            </div>
+            <div className="flex flex-row items-center p-2 gap-2">
+              <Time /> {calculateRuntime(data?.runtime ? data?.runtime : "")}
+            </div>
+            <div className="flex flex-row items-center p-2 gap-2">
+              <Rating />
+              {data?.vote_average}
+            </div>
           </div>
         </div>
         <div>{data?.overview}</div>

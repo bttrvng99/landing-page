@@ -24,16 +24,16 @@ function MovieInfo({ id, release_date, vote_average }) {
   return (
     <div className="flex flex-row gap-2">
       {genres?.map((genre) => {
-        return <GenreTag genre={genre.name} key={'genreTag'+genre.id} />;
+        return <GenreTag genre={genre.name} key={genre.id} />;
       })}
       <div className="flex flex-row items-center p-2 gap-2">
-        <Calendar key={'calendar'+id}/> {release_date.split("-")[0]}
+        <Calendar /> {release_date.split("-")[0]}
       </div>
       <div className="flex flex-row items-center p-2 gap-2">
-        <Time key={'time'+id}/> {calculateRuntime(data?.runtime)}
+        <Time /> {calculateRuntime(data?.runtime)}
       </div>
       <div className="flex flex-row items-center p-2 gap-2">
-        <Rating key={'rating'+id}/>
+        <Rating />
         {vote_average.toFixed(1)}
       </div>
     </div>
@@ -43,7 +43,7 @@ function MovieInfo({ id, release_date, vote_average }) {
 function calculateRuntime(duration_minutes) {
   var hours = Math.floor(duration_minutes / 60);
   var minutes = duration_minutes % 60;
-  return `${hours}:${(minutes < 10 ? "0" : "")}${minutes}:00`;
+  return `${hours}:${minutes < 10 ? "0" : ""}${minutes}:00`;
 }
 
 export default MovieInfo;

@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="flex flex-col">
-      <Navbar key={1}/>
+      <Navbar />
       <main className="text-white">
         <Outlet />
       </main>
