@@ -38,9 +38,9 @@ export default function Recommended() {
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between items-center">
-        <div className="font-bold text-2xl flex flex-row gap-2 lg:gap-6 items-center">
+        <div className="font-bold text-2xl flex flex-col lg:flex-row gap-2 lg:gap-6 lg:items-center">
           <div>Recommended</div>
-          {FORMATS.map((format) => {
+          <div className="flex flex-col md:flex-row gap-2 lg:gap-6">{FORMATS.map((format) => {
             return (
               <FormatToggle
                 id={format.key}
@@ -48,14 +48,14 @@ export default function Recommended() {
                 key={format.key}
               />
             );
-          })}
+          })}</div>
         </div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
           View All
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
             <button key={index}>

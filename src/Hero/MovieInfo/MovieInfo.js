@@ -10,7 +10,7 @@ function MovieInfo({ id, release_date, vote_average }) {
   const [genres, setGenres] = useState([]);
 
   const fetchInfo = async () => {
-    return fetch(URL_MOVIE_DETAIL + id + REGION, API_OPTIONS)
+    return fetch(`${URL_MOVIE_DETAIL}${id}${REGION}`, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => {
         setData(response);

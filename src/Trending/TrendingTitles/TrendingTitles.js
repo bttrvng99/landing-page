@@ -34,7 +34,7 @@ export default function TrendingTitles({
         <Link to={'/movie/'+data?.id} className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-red-600 transition-colors">
           {title}
         </Link>
-        <div className="flex flex-col lg:flex-row gap-2">
+        <div className="flex sm:flex-row md:flex-col lg:flex-row gap-2">
           {genres?.map((genre) => {
             return(
               <TrendingGenreTag text={genre.name} key={genre.id}></TrendingGenreTag>

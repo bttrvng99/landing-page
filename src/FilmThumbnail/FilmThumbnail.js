@@ -24,7 +24,7 @@ export default function FilmThumbnail({
 
   const fetchInfo = async () => {
     return fetch(
-      (type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL) + id + REGION,
+      `${type === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL}${id}${REGION}`,
       API_OPTIONS
     )
       .then((response) => response.json())

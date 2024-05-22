@@ -35,7 +35,7 @@ export default function NewRelease({ releaseType }) {
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-4 gap-8">
         {data?.map((entry, index) => {
           return (
             <button key={index}>

@@ -38,7 +38,7 @@ function UpdatedTitle({
       </div>
 
       <div className="flex flex-col justify-center update_info">
-        <Link to={'/tv/'+data?.id} className="font-semibold transition hover:text-red-600">{data?.name}</Link>
+        <Link to={'/tv/'+data?.id} className="font-semibold transition line-clamp-2 hover:text-red-600">{data?.name}</Link>
         <div className="font-normal whitespace-nowrap">
           Series/S {data?.number_of_seasons}/E{" "}
           {data?.last_episode_to_air?.episode_number}

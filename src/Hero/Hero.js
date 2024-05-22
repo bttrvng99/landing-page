@@ -6,7 +6,7 @@ import { BASE_IMG_URL, API_OPTIONS, REGION } from "../AppConsts";
 import HeroPagination from "./HeroPagination/HeroPagination";
 
 const URL =
-  "https://api.themoviedb.org/3/movie/now_playing"+REGION+"&page=1";
+  `https://api.themoviedb.org/3/movie/now_playing${REGION}page=1`;
 
 export default function Hero() {
   const [data, setData] = useState([]);

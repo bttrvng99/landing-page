@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Trending";
 import TrendingTitles from "./TrendingTitles/TrendingTitles";
-import { API_OPTIONS } from "../AppConsts";
+import { API_OPTIONS, REGION } from "../AppConsts";
 import {ReactComponent as Arrow} from '../assets/Vector-arrow.svg'
 
-const URL = "https://api.themoviedb.org/3/trending/movie/week?language=en-US";
+const URL = `https://api.themoviedb.org/3/trending/movie/week${REGION}`;
 
 export default function Trending() {
   const [data, setData] = useState([]);
@@ -26,7 +26,7 @@ export default function Trending() {
           <Arrow />
         </button>
       </div>
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
         {data?.map((entry, index) =>
           <button key={index}>
             <TrendingTitles
