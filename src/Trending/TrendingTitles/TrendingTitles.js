@@ -31,7 +31,7 @@ export default function TrendingTitles({
     <div className="flex flex-col gap-y-2">
       <TrendingThumbnail duration={data?.runtime} rating={rating} imgUrl={imgUrl} />
       <div className="flex flex-row items-center justify-between">
-        <Link to={'/watch/'+data?.id} className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-red-600 transition-colors">
+        <Link to={'/movie/'+data?.id} className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-red-600 transition-colors">
           {title}
         </Link>
         <div className="flex flex-row gap-2">

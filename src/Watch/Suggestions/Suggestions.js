@@ -38,7 +38,7 @@ export default function Suggestions({ id, mediaType }) {
                 type={mediaType}
                 imageUrl={entry.poster_path}
                 key={entry.id}
-                title={entry.title}
+                title={mediaType === MOVIE ? entry.title : entry.name}
                 releaseType={mediaType}
               />
             </button>
