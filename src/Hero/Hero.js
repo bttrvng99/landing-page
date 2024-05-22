@@ -18,13 +18,13 @@ export default function Hero() {
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
 
   return (
     <div>
       {data?.map((entry, index) => {
         return (
-          <div className="hero max-w-full min-h-96 overflow-hidden relative" key={index}>
+          <div className="hero w-full min-h-96 overflow-hidden relative" key={index}>
             <img
               alt="Hero"
               src={BASE_IMG_URL + entry.backdrop_path}

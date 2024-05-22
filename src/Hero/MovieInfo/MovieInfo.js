@@ -19,7 +19,7 @@ function MovieInfo({ id, release_date, vote_average }) {
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
 
   return (
     <div className="flex flex-row gap-2">

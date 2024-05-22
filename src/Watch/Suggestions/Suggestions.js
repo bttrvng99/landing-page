@@ -24,7 +24,7 @@ export default function Suggestions({ id, mediaType }) {
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
 
   return (
     <div className="flex flex-col gap-y-2">

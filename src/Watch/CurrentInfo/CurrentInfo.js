@@ -33,7 +33,7 @@ function CurrentInfo({ data, id, mediaType }) {
     }
   };
 
-  useEffect(() => fetchCast, []);
+  useEffect(() => {fetchCast()}, []);
 
   return (
     <div className="flex flex-row gap-8">

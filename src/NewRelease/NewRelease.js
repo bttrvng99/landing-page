@@ -23,7 +23,7 @@ export default function NewRelease({ releaseType }) {
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
   return (
     <div className="flex flex-col gap-y-2">
       <div className="flex flex-row justify-between">

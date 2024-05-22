@@ -25,7 +25,7 @@ function UpdatedTitle({
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
 
   return (
     <button className="flex flex-row gap-6  justify-center text-left items-center">

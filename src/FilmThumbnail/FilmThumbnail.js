@@ -32,7 +32,7 @@ export default function FilmThumbnail({
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
 
   return (
     <div className="flex flex-col gap-y-4">

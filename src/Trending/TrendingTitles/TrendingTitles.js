@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 
 export default function TrendingTitles({
   title,
-  genreList,
-  duration = "",
   rating = "",
   imgUrl,
   id,
@@ -26,7 +24,7 @@ export default function TrendingTitles({
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => fetchInfo, []);
+  useEffect(() => {fetchInfo()}, []);
   return (
     <div className="flex flex-col gap-y-2">
       <TrendingThumbnail duration={data?.runtime} rating={rating} imgUrl={imgUrl} />
