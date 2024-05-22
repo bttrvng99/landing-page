@@ -12,12 +12,12 @@ import CommentSection from "../Watch/CommentSection/CommentSection";
 import CurrentInfo from "../Watch/CurrentInfo/CurrentInfo";
 import Suggestions from "../Watch/Suggestions/Suggestions";
 import ViewScreen from "../Watch/ViewScreen/ViewScreen";
+import TvEpisodes from "./TvEpisodes/TvEpisodes";
 
 let CONTENT_ID = 0;
 
 function TvSeries() {
   var [data, setData] = useState({});
-  console.log(CONTENT_ID);
   const fetchInfo = async () => {
     try {
       // console.log("url", URL_SERIE_DETAIL + CONTENT_ID + REGION);
@@ -44,6 +44,7 @@ function TvSeries() {
         key={`player${CONTENT_ID}`}
       />
       <CurrentInfo data={data} id={CONTENT_ID} key={`seriesInfo${CONTENT_ID}`} mediaType={SERIES}/>
+      <TvEpisodes id={CONTENT_ID} key={`ep${CONTENT_ID}`}/>
       <Suggestions key={`suggestions${CONTENT_ID}`} id={CONTENT_ID} mediaType={SERIES}/>
       <CommentSection id={CONTENT_ID} mediaType={SERIES}/>
     </div>
@@ -52,7 +53,6 @@ function TvSeries() {
 
 export async function loader({ params }) {
   CONTENT_ID = params?.id;
-  console.log("params", CONTENT_ID);
   window.scrollTo({ behavior: "smooth", top: 0 });
   return null;
 }

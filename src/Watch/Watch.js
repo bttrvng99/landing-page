@@ -62,10 +62,7 @@ function Watch() {
 }
 
 export async function loader({ params }) {
-  // const Url = new URL(param)
   CONTENT_ID = params?.id;
-  // type = params?.type;
-  console.log('params', CONTENT_ID, type)
   window.scrollTo({ behavior: "smooth", top: 0 });
   return null;
 }

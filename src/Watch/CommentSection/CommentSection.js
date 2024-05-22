@@ -26,7 +26,6 @@ export default function CommentSection({ id, mediaType }) {
   };
 
   useEffect(() => fetchInfo, []);
-  console.log(data);
 
   return (
     <div className="flex flex-col gap-y-10">

@@ -19,12 +19,6 @@ function CurrentInfo({ data, id, mediaType }) {
 
   const fetchCast = async () => {
     try {
-      console.log(
-        "url",
-        `${
-          mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
-        }${id}/credits${REGION}`
-      );
       const response = await fetch(
         `${
           mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
@@ -40,8 +34,6 @@ function CurrentInfo({ data, id, mediaType }) {
   };
 
   useEffect(() => fetchCast, []);
-
-  console.log("cast", cast);
 
   return (
     <div className="flex flex-row gap-8">

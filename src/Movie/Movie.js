@@ -47,7 +47,6 @@ function Movie() {
 
 export async function loader({ params }) {
   CONTENT_ID = params?.id;
-  console.log("params", CONTENT_ID);
   window.scrollTo({ behavior: "smooth", top: 0 });
   return null;
 }
