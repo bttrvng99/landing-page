@@ -8,10 +8,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ErrorPage from './error-page';
-import Home from './Home/Home';
-import Movie, {loader as movieLoader} from './Movie/Movie';
-import TvSeries, {loader as tvLoader} from './Tv/TvSeries';
-import Contact from './routes/contacts';
+import Home from './Pages/Home/Home';
+import Movie, {loader as movieLoader} from './Pages/Movie/Movie';
+import TvSeries, {loader as tvLoader} from './Pages/Tv/TvSeries';
 
 
 const router = createBrowserRouter([
@@ -23,10 +22,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
-      },
-      {
-        path: "contacts/:contactId",
-        element: <Contact />,
       },
       {
         path: "movie/:id",
