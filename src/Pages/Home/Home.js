@@ -7,7 +7,7 @@ import { MOVIE, SERIES } from "../../AppConsts";
 
 function Home() {
   return (
-    <main>
+    <main className="text-white">
       <Hero />
       <section className="container mx-auto">
         <RecentlyUpdated />

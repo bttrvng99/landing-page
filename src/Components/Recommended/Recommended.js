@@ -36,7 +36,7 @@ export default function Recommended() {
   useEffect(() => {fetchInfo()}, []);
 
   return (
-    <div className="flex flex-col gap-y-2 mb-20">
+    <section className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between items-center">
         <div className="font-bold text-2xl flex flex-col lg:flex-row gap-2 lg:gap-6 lg:items-center">
           <div>Recommended</div>
@@ -69,6 +69,6 @@ export default function Recommended() {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

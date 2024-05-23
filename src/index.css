@@ -5,13 +5,16 @@
 
 @layer base {
   :root {
-    --color-background-black: 0 0 0;
-    --color-primary-red: 255 0 0;
+    --color-background: 0 0 0;
+    --color-primary: 255 0 0;
+    --color-primary-hover: 255 75 75;
+    --color-primary-active: 200 0 0;
   }
 }
 
 html {
   background-color: black;
+  color: white
 }
 
 body {

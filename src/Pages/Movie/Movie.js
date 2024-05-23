@@ -16,10 +16,10 @@ function Movie() {
         `${URL_MOVIE_DETAIL}${CONTENT_ID}${REGION}`,
         API_OPTIONS
       );
-      const response_1 = await response.json();
-      response_1.release_Year = response_1?.release_date.split("-")[0];
-      response_1.vote_average = response_1?.vote_average.toFixed(1);
-      setData(response_1);
+      const response_data = await response.json();
+      response_data.release_Year = response_data?.release_date.split("-")[0];
+      response_data.vote_average = response_data?.vote_average.toFixed(1);
+      setData(response_data);
     } catch (err) {
       return console.error(err);
     }

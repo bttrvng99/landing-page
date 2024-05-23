@@ -18,7 +18,7 @@ export default function Trending() {
 
   useEffect(() => {fetchInfo()}, []);
   return (
-    <div className="flex flex-col gap-y-2 mb-20">
+    <section className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between">
         <div className="font-bold text-2xl">Trending</div>
         <button className="flex flex-row items-center gap-2 font-semibold opacity-50 transition hover:opacity-100">
@@ -39,6 +39,6 @@ export default function Trending() {
           </button>
           )}
       </div>
-    </div>
+    </section>
   );
 }

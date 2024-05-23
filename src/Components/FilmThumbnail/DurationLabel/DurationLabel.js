@@ -5,16 +5,16 @@ import { ReactComponent as Time } from "../../../assets/Vector-time.svg";
 export default function DurationLabel({ type = 0, duration, season }) {
   return (
     <div className="flex flex-row gap-2">
-      <div className="flex flex-row gap-1 h-8 w-8 items-center rounded-lg bg-red-600 text-white p-1">
+      <div className="flex flex-row gap-1 h-8 w-8 items-center rounded-lg bg-primary text-white p-1">
         HD
       </div>
       {type === MOVIE ? (
-        <div className=" flex flex-row h-8 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 gap-1 whitespace-nowrap">
+        <div className=" flex flex-row h-8 items-center rounded-lg border-2 border-primary bg-black text-white p-1 gap-1 whitespace-nowrap">
           <Time />
           {calculateRuntime(duration)}
         </div>
       ) : (
-        <div className="h-8 items-center rounded-lg border-2 border-red-600 bg-black text-white p-1 whitespace-nowrap">
+        <div className="h-8 items-center rounded-lg border-2 border-primary bg-black text-white p-1 whitespace-nowrap">
           Season {season}
         </div>
       )}

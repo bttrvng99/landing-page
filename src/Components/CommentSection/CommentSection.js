@@ -13,8 +13,8 @@ import tmp from "../../assets/tmp.jpg";
 export default function CommentSection({ id, mediaType }) {
   const [data, setData] = useState([]);
 
-  const fetchInfo = async () => {
-    return fetch(
+  useEffect(() => {
+    fetch(
       `${
         mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
       }${id}/reviews`,
@@ -23,11 +23,7 @@ export default function CommentSection({ id, mediaType }) {
       .then((response) => response.json())
       .then((response) => setData(response.results))
       .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    fetchInfo();
-  }, []);
+  }, [id, mediaType]);
 
   return (
     <section className="flex flex-col gap-y-10 my-20">

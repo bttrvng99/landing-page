@@ -9,19 +9,15 @@ function MovieInfo({ id, release_date, vote_average }) {
   const [data, setData] = useState({});
   const [genres, setGenres] = useState([]);
 
-  const fetchInfo = async () => {
-    return fetch(`${URL_MOVIE_DETAIL}${id}${REGION}`, API_OPTIONS)
+  useEffect(() => {
+    fetch(`${URL_MOVIE_DETAIL}${id}${REGION}`, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => {
         setData(response);
         setGenres(response.genres);
       })
       .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {
-    fetchInfo();
-  }, []);
+  }, [id]);
 
   return (
     <div className="hidden sm:flex sm:flex-col lg:flex-row gap-2">

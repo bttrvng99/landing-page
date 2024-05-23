@@ -14,48 +14,53 @@ import { useEffect, useState } from "react";
 import { MOVIE } from "../../AppConsts";
 
 function CurrentInfo({ data, id, mediaType }) {
-  var [cast, setCast] = useState([]);
-  // var [crew, setCrew] = useState([]);
+  const [cast, setCast] = useState([]);
 
-  const fetchCast = async () => {
-    try {
-      const response = await fetch(
-        `${
-          mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
-        }${id}/credits${REGION}`,
-        API_OPTIONS
-      );
-      const response_1 = await response.json();
-      if (response_1.crew && !response_1.cast.length) setCast(response_1.crew);
-      else setCast(response_1.cast);
-    } catch (err) {
-      return console.error(err);
-    }
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const changeStateExpand = () => {
+    setIsExpanded(!isExpanded);
   };
 
-  useEffect(() => {fetchCast()}, []);
+  useEffect(() => {
+    fetch(
+      `${
+        mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
+      }${id}/credits${REGION}`,
+      API_OPTIONS
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.crew && !response.cast.length)
+          setCast(response.crew);
+        else setCast(response.cast);
+      })
+      .catch((err) => console.error(err));
+  }, [id, mediaType]);
 
   return (
     <section className="flex flex-col md:flex-row gap-8 mt-24">
       <img
         alt="Current Movie"
         className="md:w-1/3 h-fit"
-        src={BASE_IMG_URL + data.poster_path}
+        src={`${BASE_IMG_URL}${data.poster_path}`}
       />
       <div className="flex flex-col md:w-2/3">
         <div className="flex flex-col items-start xl:flex-row xl:justify-between xl:items-center gap-2">
           <h1 className="text-3xl font-semibold">
             {data?.title ? data?.title : data?.name}
           </h1>
-          <button className="flex flex-row bg-red-600 rounded-xl p-4 items-center gap-2 text-base font-normal transition hover:bg-red-500 active:bg-red-700">
+          <button className="flex flex-row bg-primary rounded-xl p-4 items-center gap-2 text-base font-normal transition hover:bg-primaryHover active:bg-primaryActive">
             <Add />
             Add to Favourites
           </button>
         </div>
         <div className="flex flex-col lg:flex-row gap-2 mt-16 mb-6">
-          <div className="flex flex-col w-fit sm:flex-row gap-2">{data?.genres?.map((genre) => {
-            return <GenreTag genre={genre.name} key={genre.id} />;
-          })}</div>
+          <div className="flex flex-col w-fit sm:flex-row gap-2">
+            {data?.genres?.map((genre) => {
+              return <GenreTag genre={genre.name} key={genre.id} />;
+            })}
+          </div>
           <div className="flex flex-row">
             <div className="flex flex-row items-center p-2 gap-2">
               <Calendar /> {data?.release_Year}
@@ -87,9 +92,9 @@ function CurrentInfo({ data, id, mediaType }) {
               <th className="font-normal text-end">Genre:</th>
               <td className="text-start">
                 {data?.genres?.map((genre, index) => {
-                  return (
-                    genre.name + (index < data?.genres?.length - 1 ? ", " : "")
-                  );
+                  return `${genre.name}${
+                    index < data?.genres?.length - 1 ? ", " : ""
+                  }`;
                 })}
               </td>
             </tr>
@@ -112,10 +117,22 @@ function CurrentInfo({ data, id, mediaType }) {
             </tr>
             <tr>
               <th className="font-normal text-end">Cast: </th>
-              <td className="text-start">
-                {cast?.map((person, index) => {
-                  return person.name + (index < cast?.length - 1 ? ", " : "");
-                })}
+              <td>
+                <p
+                  className={`text-start ${!isExpanded ? "line-clamp-5" : ""}`}
+                >
+                  {cast?.map((person, index) => {
+                    return `${person.name}${
+                      index < cast?.length - 1 ? ", " : ""
+                    }`;
+                  })}
+                </p>
+                <button
+                  className="transition text-left font-semibold hover:text-primary active:text-primaryActive"
+                  onClick={() => changeStateExpand()}
+                >
+                  {!isExpanded ? "Show more" : "Show less"}
+                </button>
               </td>
             </tr>
           </tbody>

@@ -12,8 +12,8 @@ import FilmThumbnail from "../FilmThumbnail/FilmThumbnail";
 export default function Suggestions({ id, mediaType }) {
   const [data, setData] = useState([]);
 
-  const fetchInfo = async () => {
-    return fetch(
+  useEffect(() => {
+    fetch(
       `${
         mediaType === MOVIE ? URL_MOVIE_DETAIL : URL_SERIE_DETAIL
       }${id}/recommendations${REGION}&page=1`,
@@ -22,9 +22,7 @@ export default function Suggestions({ id, mediaType }) {
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 8)))
       .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {fetchInfo()}, []);
+  }, [id, mediaType]);
 
   return (
     <section className="flex flex-col gap-y-2 mt-10">

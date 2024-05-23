@@ -14,28 +14,30 @@ function TvSeries() {
   const fetchInfo = async () => {
     try {
       const response = await fetch(
-        URL_SERIE_DETAIL + CONTENT_ID + REGION,
+        `${URL_SERIE_DETAIL}${CONTENT_ID}${REGION}`,
         API_OPTIONS
       );
-      const response_1 = await response.json();
-      response_1.release_Year = response_1?.first_air_date.split("-")[0];
-      response_1.vote_average = response_1?.vote_average.toFixed(1);
-      setData(response_1);
+      const response_data = await response.json();
+      response_data.release_Year = response_data?.first_air_date.split("-")[0];
+      response_data.vote_average = response_data?.vote_average.toFixed(1);
+      setData(response_data);
     } catch (err) {
       return console.error(err);
     }
   };
 
-  useEffect(() => {fetchInfo()}, []);
+  useEffect(() => {
+    fetchInfo();
+  }, []);
 
   return (
-    <div className="container mx-auto">
+    <main className="container mx-auto">
       <ViewScreen background={data?.backdrop_path} />
       <CurrentInfo data={data} id={CONTENT_ID} mediaType={SERIES} />
       <TvEpisodes id={CONTENT_ID} />
       <Suggestions id={CONTENT_ID} mediaType={SERIES} />
       <CommentSection id={CONTENT_ID} mediaType={SERIES} />
-    </div>
+    </main>
   );
 }
 

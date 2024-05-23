@@ -13,9 +13,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primaryRed: "rgb(var(--color-primary-red))",
-        backgroundBlack: "rgb(var(--color-background-black))",
-        buttonGray: "rgb(#D9D9D9)",
+        primary: "#FF0000",
+        primaryHover: "#FF4B4B",
+        primaryActive: "E10000",
+        background: "#000000",
+        button: "#D9D9D9",
       },
     },
   },

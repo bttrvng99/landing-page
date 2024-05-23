@@ -25,16 +25,18 @@ export default function Hero() {
     <section>
       {data?.map((entry, index) => {
         return (
-          <div className="w-full min-h-96 overflow-hidden relative" key={index}>
-            <img
-              alt="Hero"
-              src={`${BASE_IMG_URL}${entry.backdrop_path}`}
-              className="hero h-full w-full object-cover"
-            ></img>
-
+          <div
+            className="hero w-full relative bg-cover bg-center"
+            key={index}
+            style={{
+              backgroundImage: `url(${BASE_IMG_URL}${entry.backdrop_path})`,
+            }}
+          >
             <div className="absolute container mx-auto bottom-20">
               <div>
-                <h1 className="hidden sm:block text-3xl font-bold mb-2">{entry.title}</h1>
+                <h1 className="hidden sm:block text-3xl font-bold mb-2">
+                  {entry.title}
+                </h1>
               </div>
               <MovieInfo
                 id={entry.id}
@@ -43,7 +45,7 @@ export default function Hero() {
               />
               <p className="hidden md:block mt-6">{entry.overview}</p>
             </div>
-            <PlayButton id={entry.id + index} />
+            <PlayButton id={entry.id} />
             <HeroPagination />
           </div>
         );

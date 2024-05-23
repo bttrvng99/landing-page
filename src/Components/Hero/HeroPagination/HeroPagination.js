@@ -8,13 +8,13 @@ export default function HeroPagination() {
         <Dash />
       </button>
       <button>
-        <Dot className="transition hover:stroke-red-600 hover:fill-red-600" />
+        <Dot className="transition hover:stroke-primary hover:fill-primary" />
       </button>
       <button>
-        <Dot className="transition hover:stroke-red-600 hover:fill-red-600" />
+        <Dot className="transition hover:stroke-primary hover:fill-primary" />
       </button>
       <button>
-        <Dot className="transition hover:stroke-red-600 hover:fill-red-600" />
+        <Dot className="transition hover:stroke-primary hover:fill-primary" />
       </button>
     </div>
   );

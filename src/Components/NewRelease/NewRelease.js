@@ -5,25 +5,18 @@ import { useState, useEffect } from "react";
 import { MOVIE, REGION } from "../../AppConsts";
 import { ReactComponent as Arrow } from "../../assets/Vector-arrow.svg";
 
-const URL_NEW_MOVIES =
-  `https://api.themoviedb.org/3/movie/upcoming${REGION}&page=1`;
-const URL_NEW_SERIES =
-  `https://api.themoviedb.org/3/tv/airing_today${REGION}&page=1`;
+const URL_NEW_MOVIES = `https://api.themoviedb.org/3/movie/upcoming${REGION}&page=1`;
+const URL_NEW_SERIES = `https://api.themoviedb.org/3/tv/airing_today${REGION}&page=1`;
 
 export default function NewRelease({ releaseType }) {
   const [data, setData] = useState([]);
 
-  const fetchInfo = async () => {
-    return fetch(
-      releaseType === MOVIE ? URL_NEW_MOVIES : URL_NEW_SERIES,
-      API_OPTIONS
-    )
+  useEffect(() => {
+    fetch(releaseType === MOVIE ? URL_NEW_MOVIES : URL_NEW_SERIES, API_OPTIONS)
       .then((response) => response.json())
       .then((response) => setData(response.results.slice(0, 4)))
       .catch((err) => console.error(err));
-  };
-
-  useEffect(() => {fetchInfo()}, []);
+  }, [releaseType]);
   return (
     <section className="flex flex-col gap-y-2 mb-20">
       <div className="flex flex-row justify-between">
