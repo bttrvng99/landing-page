@@ -53,7 +53,7 @@ function CurrentInfo({ data, id, mediaType }) {
           </button>
         </div>
         <div className="flex flex-col lg:flex-row gap-2 mt-16 mb-6">
-          <div className="flex flex-row gap-2">{data?.genres?.map((genre) => {
+          <div className="flex flex-col w-fit sm:flex-row gap-2">{data?.genres?.map((genre) => {
             return <GenreTag genre={genre.name} key={genre.id} />;
           })}</div>
           <div className="flex flex-row">
