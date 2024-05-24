@@ -27,7 +27,7 @@ export default function TrendingTitles({ title, rating = "", imgUrl, id }) {
       />
       <div className="flex flex-row items-center justify-between">
         <a
-          href={"/movie/" + data?.id}
+          href={`/movie/${data?.id}`}
           className="text-ellipsis overflow-hidden whitespace-nowrap font-semibold text-2xl hover:text-primary transition-colors"
         >
           {title}
